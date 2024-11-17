@@ -31,25 +31,17 @@ namespace DoAnTinHoc
         }
         private void CBB_Menu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CBB_Menu.Text == "Bubble Sort")
-                openForm(new BubbleSort());
-            else if (CBB_Menu.Text == "Selection Sort")
-                openForm(new SelectionSort());
-            else if (CBB_Menu.Text == "Insertion Sort")
-                openForm(new InsertionSort());
-            else if (CBB_Menu.Text == "Merge Sort")
-                openForm(new MergeSort());
-            else if (CBB_Menu.Text == "Quick Sort")
-                openForm(new QuickSort());
-            else if (CBB_Menu.Text == "Heap Sort")
-                openForm(new HeapSort());
-            else if(CBB_Menu.Text=="Radix Sort")
-                openForm(new Radix());
-            else
-                openForm(new CountingSort());
-            CBB_Menu.Hide();
-            label1.Hide();
-            button1.Visible = true;
+            //if (CBB_Menu.Text == "Bubble Sort")
+            //    openForm(new BubbleSort());
+            //else if (CBB_Menu.Text == "Selection Sort")
+            //    openForm(new SelectionSort());
+            //else if (CBB_Menu.Text == "Insertion Sort")
+            //    openForm(new InsertionSort());
+            //else
+            //    openForm(new CountingSort());
+            //CBB_Menu.Hide();
+            //label1.Hide();
+            //button1.Visible = true;
         }
         private void button1_Click(object sender, EventArgs e)
         {
