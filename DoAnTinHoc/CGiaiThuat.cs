@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Threading;
+using System.Drawing;
+using System.Collections;
 
 namespace DoAnTinHoc
 {
@@ -14,48 +17,77 @@ namespace DoAnTinHoc
         private static int buoc;
         public static void hienMang(int[] mang, ListBox listBox, string chuoi)
         {
-            listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Milliseconds + " milisecond");
+            listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Seconds + " s");
+        }
+        public static void moPhong(int[] mang, TextBox[] txtArray, Label[] lblArray, int indexI, int indexJ)
+        {
+            for (int i = 0; i < txtArray.Length; i++)
+            {
+                if (i == indexI)
+                {
+                    txtArray[i].BackColor = Color.Aqua;
+                    lblArray[i].Text = "↑";
+                }
+                else if(i == indexJ)
+                {
+                    txtArray[i].BackColor = Color.Brown;
+                    lblArray[i].Text = "↑";
+                }
+                else
+                {
+                    txtArray[i].BackColor = Color.White;
+                    lblArray[i].Text = "[" + i + "]";
+                }
+            }
         }
         public static Stopwatch demtg = new Stopwatch();
-        public static void BubbleSort(int[] mang, ListBox listBox)
+        public static async void BubbleSort(int[] mang,ListBox listbox, TextBox[] txtArray, Label[] lblArray)
         {
             buoc = 1;
             demtg.Reset();
             demtg.Start();
-            for (int i = 0; i < mang.Length - 1; i++)
+            for (int i = 0; i < mang.Length; i++)
             {
-                for (int j = 0; j < mang.Length - i - 1; j++)
+                for (int j = i + 1; j < mang.Length; j++)
                 {
-                    if (mang[j] > mang[j + 1])
+                    if (mang[i] > mang[j])
                     {
-                        int temp = mang[j];
-                        mang[j] = mang[j + 1];
-                        mang[j + 1] = temp;
-                        demtg.Stop();
-                        hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[j + 1]} và {mang[j]} => ");
+                        int temp = mang[i];
+                        mang[i] = mang[j];
+                        mang[j] = temp;
+                        moPhong(mang, txtArray, lblArray, i, j);
+                        hienMang(mang, listbox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
+                        await Task.Delay(3000);
+                        txtArray[i].Text = mang[i].ToString();
+                        txtArray[j].Text = mang[j].ToString();
                     }
                 }
             }
+            demtg.Stop();
         }
-        public static void BubbleSortDescending(int[] mang, ListBox listBox)
+        public static async void BubbleSortDescending(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
         {
             buoc = 1;
             demtg.Reset();
             demtg.Start();
-            for (int i = 0; i < mang.Length - 1; i++)
+            for (int i = 0; i < mang.Length; i++)
             {
-                for (int j = 0; j < mang.Length - i - 1; j++)
+                for (int j = i + 1; j < mang.Length; j++)
                 {
-                    if (mang[j] < mang[j + 1])
+                    if (mang[i] < mang[j])
                     {
-                        int temp = mang[j];
-                        mang[j] = mang[j + 1];
-                        mang[j + 1] = temp;
-                        demtg.Stop();
-                        hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[j + 1]} và {mang[j]} => ");
+                        int temp = mang[i];
+                        mang[i] = mang[j];
+                        mang[j] = temp;
+                        moPhong(mang, txtArray, lblArray, i, j);
+                        hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
+                        await Task.Delay(3000);
+                        txtArray[i].Text = mang[i].ToString();
+                        txtArray[j].Text = mang[j].ToString();
                     }
                 }
             }
+            demtg.Stop();
         }
         public static void SelectionSort(int[] mang, ListBox listBox)
         {
@@ -75,9 +107,9 @@ namespace DoAnTinHoc
                 int temp = mang[minIndex];
                 mang[minIndex] = mang[i];
                 mang[i] = temp;
-                demtg.Stop();
-                hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[minIndex]} => ");
+                //hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[minIndex]} => ");
             }
+            demtg.Stop();
         }
         public static void SelectionSortDescending(int[] mang, ListBox listBox)
         {
@@ -97,9 +129,9 @@ namespace DoAnTinHoc
                 int temp = mang[maxIndex];
                 mang[maxIndex] = mang[i];
                 mang[i] = temp;
-                demtg.Stop();
-                hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[maxIndex]} => ");
+                //hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[maxIndex]} => ");
             }
+            demtg.Stop();
         }
         public static void InsertionSort(int[] mang, ListBox listBox)
         {
@@ -114,12 +146,12 @@ namespace DoAnTinHoc
                 {
                     mang[j + 1] = mang[j];
                     j--;
-                    hienMang(mang, listBox, $"Bước {buoc++}: Di chuyển {mang[j + 1]} đến vị trí {j + 2} => ");
+                    //hienMang(mang, listBox, $"Bước {buoc++}: Di chuyển {mang[j + 1]} đến vị trí {j + 2} => ");
                 }
                 mang[j + 1] = key;
-                demtg.Stop();
-                hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                //hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
             }
+            demtg.Stop();
         }
         public static void InsertionSortDescending(int[] mang, ListBox listBox)
         {
@@ -134,84 +166,12 @@ namespace DoAnTinHoc
                 {
                     mang[j + 1] = mang[j];
                     j--;
-                    hienMang(mang, listBox, $"Bước {buoc++}: Di chuyển {mang[j + 1]} đến vị trí {j + 2} => ");
+                    //hienMang(mang, listBox, $"Bước {buoc++}: Di chuyển {mang[j + 1]} đến vị trí {j + 2} => ");
                 }
                 mang[j + 1] = key;
-                demtg.Stop();
-                hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
-            }
-        }
-        public static void CountingSort(int[] mang, ListBox listBox)
-        {
-            buoc = 1;
-            demtg.Reset();
-            demtg.Start();
-            int[] hamSort = new int[mang.Length];
-            hienMang(hamSort, listBox, $"Bước {buoc++}: Khởi tạo mảng với {mang.Length} phần tử => ");
-
-            int max = mang.Max();
-
-            int[] hamDem = new int[max + 1];
-            for (int i = 0; i < mang.Length; i++)
-                hamDem[mang[i]]++;
-            hienMang(hamDem, listBox, $"Bước {buoc++}: Đếm các số từ 0 đến {max} trong mảng : ");
-            for (int i = 1; i <= max; i++)
-                hamDem[i] += hamDem[i - 1];
-            hienMang(hamDem, listBox, $"Bước {buoc++}: Tổng tích lũy của từng phần tử trong hàm đếm : ");
-            
-            int[] rong = new int[0];
-            for (int i = mang.Length - 1; i >= 0; i--)
-            {
-                hienMang(hamDem, listBox, $"Bước {buoc++} : Hàm tổng tích lũy : ");
-                hienMang(rong, listBox, $"Lấy số thứ {i + 1} của Dãy số ban đầu là {mang[i]} mà ô thứ {mang[i]}+1 của Hàm tổng tích lũy là {hamDem[mang[i]]}");
-                hamSort[hamDem[mang[i]] - 1] = mang[i];
-                hamDem[mang[i]]--;
-
-                hienMang(hamSort, listBox, $"=> Cho {mang[i]} vào ô thứ {hamDem[mang[i]] + 1} của hàm đã duyệt=>");
-
-            }
-            for (int i = 0; i < mang.Length; i++)
-            {
-                mang[i] = hamSort[i];
+                //hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
             }
             demtg.Stop();
-            hienMang(mang, listBox, "Mảng đã sắp xếp: ");
-        }
-        public static void CountingSortDescending(int[] mang, ListBox listBox)
-        {
-            buoc = 1;
-            demtg.Reset();
-            demtg.Start();
-            int[] hamSort = new int[mang.Length];
-            hienMang(hamSort, listBox, $"Bước {buoc++}: Khởi tạo mảng với {mang.Length} phần tử => ");
-
-            int max = mang.Max();
-
-            int[] hamDem = new int[max + 1];
-            for (int i = 0; i < mang.Length; i++)
-                hamDem[mang[i]]++;
-            hienMang(hamDem, listBox, $"Bước {buoc++}: Đếm các số từ 0 đến {max} trong mảng : ");
-            for (int i = max - 1; i >= 0; i--) 
-                hamDem[i] += hamDem[i + 1];
-            hienMang(hamDem, listBox, $"Bước {buoc++}: Tổng tích lũy của từng phần tử trong hàm đếm : ");
-
-            int[] rong = new int[0];
-            for (int i = 0; i < mang.Length; i++) 
-            {
-                hienMang(hamDem, listBox, $"Bước {buoc++} : Hàm tổng tích lũy : ");
-                hienMang(rong, listBox, $"Lấy số thứ {i + 1} của Dãy số ban đầu là {mang[i]} mà ô thứ {mang[i]}+1 của Hàm tổng tích lũy là {hamDem[mang[i]]}");
-                hamSort[hamDem[mang[i]] - 1] = mang[i];
-                hamDem[mang[i]]--;
-
-                hienMang(hamSort, listBox, $"=> Cho {mang[i]} vào ô thứ {hamDem[mang[i]] + 1} của hàm đã duyệt=>");
-
-            }
-            for (int i = 0; i < mang.Length; i++)
-            {
-                mang[i] = hamSort[i];
-            }
-            demtg.Stop();
-            hienMang(mang, listBox, "Mảng đã sắp xếp: ");
         }
     }
 }

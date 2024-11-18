@@ -37,7 +37,7 @@ namespace DoAnTinHoc
             {
                 string fileContent = File.ReadAllText(ofd.FileName);
                 int[] mang = fileContent.Split(' ').Select(int.Parse).ToArray();
-                txtKetQua.Text = string.Join(" ", mang);
+                
             }
         }
         private void btnNhap_Click(object sender, EventArgs e)
@@ -48,6 +48,31 @@ namespace DoAnTinHoc
                 {
                     mang = txtNhap.Text.Split(' ').Select(int.Parse).ToArray();
                     txtBanDau.Text = string.Join(" ", mang);
+                    TextBox[] txtArray = new TextBox[mang.Length];
+                    Label[] lblArray = new Label[mang.Length];
+                    for (int i = 0; i < mang.Length; i++)
+                    {
+                        TextBox txt = new TextBox();
+                        txt.Name = "txt" + i;
+                        txt.Text = mang[i].ToString();
+                        txt.TextAlign = HorizontalAlignment.Center;
+                        txt.Font = new Font("Times New Roman", 12);
+                        txt.Location = new Point(60 * i, 220);
+                        txt.Size = new Size(50, 30);
+                        txt.BackColor = Color.White;
+                        txt.ReadOnly = true;
+                        this.Controls.Add(txt);
+                        txtArray[i] = txt;
+                        Label lbl = new Label();
+                        lbl.Name = "lbl" + i;
+                        lbl.Text = "[" + i + "]".ToString();
+                        lbl.TextAlign = ContentAlignment.MiddleCenter;
+                        lbl.Font = new Font("Times New Roman", 12);
+                        lbl.Location = new Point(60 * i, 260);
+                        lbl.Size = new Size(50, 30);
+                        this.Controls.Add(lbl);
+                        lblArray[i] = lbl;
+                    }
                 }
             }
             catch
@@ -57,14 +82,23 @@ namespace DoAnTinHoc
         }
         private void SapXepMang(bool tangDan)
         {
-            int[] mangSapXep = (int[])mang.Clone();
+            int[] mangSapXep =  new int[mang.Length];
             lbxSapXep.Items.Clear();
+            TextBox[] txtArray = new TextBox[mangSapXep.Length];
+            Label[] lblArray = new Label[mangSapXep.Length];
+            for (int i = 0; i < mang.Length; i++)
+            {
+                txtArray[i] = (TextBox)this.Controls.Find("txt" + i, true)[0];
+                lblArray[i] = (Label)this.Controls.Find("lbl" + i, true)[0];
+                mangSapXep[i] = int.Parse(txtArray[i].Text);
+            }
             switch (cbbGiaiThuat.SelectedItem.ToString())
             {
                 case "Bubble Sort":
                     if (tangDan)
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep);
-                    else CGiaiThuat.BubbleSortDescending(mangSapXep, lbxSapXep);
+                        CGiaiThuat.BubbleSort(mangSapXep,lbxSapXep, txtArray, lblArray);
+                    else
+                        CGiaiThuat.BubbleSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
                     break;
                 case "Selection Sort":
                     if (tangDan)
@@ -75,16 +109,15 @@ namespace DoAnTinHoc
                 case "Insertion Sort":
                     if (tangDan)
                         CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep);
-                    else CGiaiThuat.InsertionSortDescending(mangSapXep, lbxSapXep);
-                    break;
-                case "Counting Sort":
-                    if (tangDan)
-                        CGiaiThuat.CountingSort(mangSapXep, lbxSapXep);
                     else
-                        CGiaiThuat.CountingSortDescending(mangSapXep, lbxSapXep);
+                        CGiaiThuat.InsertionSortDescending(mangSapXep, lbxSapXep);
                     break;
             }
-            txtKetQua.Text = string.Join(" ", mangSapXep);
+            for (int i = 0; i < mang.Length; i++)
+            {
+                txtArray[i].Text = mangSapXep[i].ToString();
+            }
+           
         }
         private void btnSortAsc_Click(object sender, EventArgs e)
         {
