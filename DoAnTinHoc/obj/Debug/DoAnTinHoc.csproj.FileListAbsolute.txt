@@ -36,6 +36,7 @@ D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\bin\Debug\DoAnTinHoc.exe.confi
 D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\bin\Debug\DoAnTinHoc.exe
 D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\bin\Debug\DoAnTinHoc.pdb
 D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.AssemblyReference.cache
+D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\obj\Debug\DoAnTinHoc.GiaoDien.resources
 D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\obj\Debug\DoAnTinHoc.Properties.Resources.resources
 D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\obj\Debug\DoAnTinHoc.SapXep.resources
 D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.GenerateResource.cache

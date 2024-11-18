@@ -38,9 +38,8 @@
             this.btnSortAsc = new System.Windows.Forms.Button();
             this.btnSortDesc = new System.Windows.Forms.Button();
             this.cbbGiaiThuat = new System.Windows.Forms.ComboBox();
-            this.lbxSapXep = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnxXoa = new System.Windows.Forms.Button();
+            this.lbxSapXep = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -78,7 +77,7 @@
             // btnTapTin
             // 
             this.btnTapTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTapTin.Location = new System.Drawing.Point(806, 88);
+            this.btnTapTin.Location = new System.Drawing.Point(806, 94);
             this.btnTapTin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTapTin.Name = "btnTapTin";
             this.btnTapTin.Size = new System.Drawing.Size(120, 41);
@@ -155,6 +154,16 @@
             this.cbbGiaiThuat.Size = new System.Drawing.Size(543, 24);
             this.cbbGiaiThuat.TabIndex = 16;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(34, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 25);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Chọn giải thuật";
+            // 
             // lbxSapXep
             // 
             this.lbxSapXep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,35 +175,12 @@
             this.lbxSapXep.Size = new System.Drawing.Size(1080, 154);
             this.lbxSapXep.TabIndex = 9;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 25);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Chọn giải thuật";
-            // 
-            // btnxXoa
-            // 
-            this.btnxXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnxXoa.Location = new System.Drawing.Point(806, 139);
-            this.btnxXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnxXoa.Name = "btnxXoa";
-            this.btnxXoa.Size = new System.Drawing.Size(120, 41);
-            this.btnxXoa.TabIndex = 18;
-            this.btnxXoa.Text = "Xóa";
-            this.btnxXoa.UseVisualStyleBackColor = true;
-            this.btnxXoa.Click += new System.EventHandler(this.btnxXoa_Click);
-            // 
             // SapXep
             // 
             this.AcceptButton = this.btnNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 577);
-            this.Controls.Add(this.btnxXoa);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbbGiaiThuat);
             this.Controls.Add(this.btnSortDesc);
@@ -227,8 +213,7 @@
         private System.Windows.Forms.Button btnSortAsc;
         private System.Windows.Forms.Button btnSortDesc;
         private System.Windows.Forms.ComboBox cbbGiaiThuat;
-        private System.Windows.Forms.ListBox lbxSapXep;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnxXoa;
+        private System.Windows.Forms.ListBox lbxSapXep;
     }
 }

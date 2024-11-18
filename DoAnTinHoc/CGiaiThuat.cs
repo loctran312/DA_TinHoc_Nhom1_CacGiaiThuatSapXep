@@ -17,7 +17,7 @@ namespace DoAnTinHoc
         private static int buoc;
         public static void hienMang(int[] mang, ListBox listBox, string chuoi)
         {
-            listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Seconds + "s");
+            listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Seconds + " s");
         }
         public static void moPhong(int[] mang, TextBox[] txtArray, Label[] lblArray, int indexI, int indexJ)
         {
@@ -60,7 +60,6 @@ namespace DoAnTinHoc
                         await Task.Delay(3000);
                         txtArray[i].Text = mang[i].ToString();
                         txtArray[j].Text = mang[j].ToString();
-                        
                     }
                 }
             }
@@ -85,13 +84,12 @@ namespace DoAnTinHoc
                         await Task.Delay(3000);
                         txtArray[i].Text = mang[i].ToString();
                         txtArray[j].Text = mang[j].ToString();
-                       
                     }
                 }
             }
             demtg.Stop();
         }
-        public static async void SelectionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
+        public static void SelectionSort(int[] mang, ListBox listBox)
         {
             buoc = 1;
             demtg.Reset();
@@ -103,22 +101,17 @@ namespace DoAnTinHoc
                 {
                     if (mang[j] < mang[minIndex])
                     {
-                        minIndex = j;    
+                        minIndex = j;
                     }
-                    
                 }
                 int temp = mang[minIndex];
                 mang[minIndex] = mang[i];
                 mang[i] = temp;
-                moPhong(mang, txtArray, lblArray, i,minIndex);
-                hienMang(mang, listBox, $"Bước {buoc++}:  Đổi {mang[i]} và {mang[minIndex]} => ");
-                await Task.Delay(3000);
-                txtArray[i].Text = mang[i].ToString();
-                txtArray[minIndex].Text = mang[minIndex].ToString();
+                //hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[minIndex]} => ");
             }
             demtg.Stop();
         }
-        public static async void SelectionSortDescending(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
+        public static void SelectionSortDescending(int[] mang, ListBox listBox)
         {
             buoc = 1;
             demtg.Reset();
@@ -130,17 +123,13 @@ namespace DoAnTinHoc
                 {
                     if (mang[j] > mang[maxIndex])
                     {
-                        maxIndex = j;     
+                        maxIndex = j;
                     }
                 }
                 int temp = mang[maxIndex];
                 mang[maxIndex] = mang[i];
                 mang[i] = temp;
-                moPhong(mang, txtArray, lblArray, i, maxIndex);
-                hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[maxIndex]} => ");
-                await Task.Delay(3000);
-                txtArray[i].Text = mang[i].ToString();
-                txtArray[maxIndex].Text = mang[maxIndex].ToString();
+                //hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[maxIndex]} => ");
             }
             demtg.Stop();
         }
