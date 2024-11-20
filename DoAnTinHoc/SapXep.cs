@@ -116,9 +116,9 @@ namespace DoAnTinHoc
                     break;
                 case "Insertion Sort":
                     if (tangDan)
-                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray);
                     else
-                        CGiaiThuat.InsertionSortDescending(mangSapXep, lbxSapXep);
+                        CGiaiThuat.InsertionSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
                     break;
             }
             for (int i = 0; i < mang.Length; i++)
