@@ -17,7 +17,7 @@ namespace DoAnTinHoc
         private static int buoc;
         public static void hienMang(int[] mang, ListBox listBox, string chuoi)
         {
-            listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Seconds + "s");
+            listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Seconds + " giây");
         }
         public static void moPhong(int[] mang, TextBox[] txtArray, Label[] lblArray, int indexI, int indexJ)
         {
@@ -144,7 +144,7 @@ namespace DoAnTinHoc
             }
             demtg.Stop();
         }
-        public static void InsertionSort(int[] mang, ListBox listBox)
+        public static async void InsertionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
         {
             buoc = 1;
             demtg.Reset();
@@ -157,14 +157,19 @@ namespace DoAnTinHoc
                 {
                     mang[j + 1] = mang[j];
                     j--;
-                    //hienMang(mang, listBox, $"Bước {buoc++}: Di chuyển {mang[j + 1]} đến vị trí {j + 2} => ");
                 }
                 mang[j + 1] = key;
-                //hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                moPhong(mang, txtArray, lblArray, j + 1, i);
+                hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                await Task.Delay(3000);
+                for (int k = 0; k < mang.Length; k++)
+                {
+                    txtArray[k].Text = mang[k].ToString();
+                }
             }
             demtg.Stop();
         }
-        public static void InsertionSortDescending(int[] mang, ListBox listBox)
+        public static async void InsertionSortDescending(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
         {
             buoc = 1;
             demtg.Reset();
@@ -177,10 +182,15 @@ namespace DoAnTinHoc
                 {
                     mang[j + 1] = mang[j];
                     j--;
-                    //hienMang(mang, listBox, $"Bước {buoc++}: Di chuyển {mang[j + 1]} đến vị trí {j + 2} => ");
                 }
                 mang[j + 1] = key;
-                //hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                moPhong(mang, txtArray, lblArray, j + 1, i);
+                hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                await Task.Delay(3000);
+                for (int k = 0; k < mang.Length; k++)
+                {
+                    txtArray[k].Text = mang[k].ToString();
+                }
             }
             demtg.Stop();
         }
