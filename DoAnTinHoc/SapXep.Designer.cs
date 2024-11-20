@@ -107,11 +107,11 @@
             // 
             this.txtBanDau.BackColor = System.Drawing.Color.White;
             this.txtBanDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBanDau.Location = new System.Drawing.Point(236, 228);
+            this.txtBanDau.Location = new System.Drawing.Point(291, 228);
             this.txtBanDau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBanDau.Name = "txtBanDau";
             this.txtBanDau.ReadOnly = true;
-            this.txtBanDau.Size = new System.Drawing.Size(1111, 30);
+            this.txtBanDau.Size = new System.Drawing.Size(1056, 30);
             this.txtBanDau.TabIndex = 12;
             // 
             // label2
@@ -120,7 +120,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("AnkeCalligraph", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(30, 228);
+            this.label2.Location = new System.Drawing.Point(12, 217);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(280, 52);
             this.label2.TabIndex = 13;

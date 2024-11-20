@@ -39,14 +39,53 @@ namespace DoAnTinHoc
         }
         private void btnTapTin_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Text Files (*.txt)|*.txt";
+            
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Text Files (*.txt)|*.txt";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string fileContent = File.ReadAllText(ofd.FileName);
-                int[] mang = fileContent.Split(' ').Select(int.Parse).ToArray();
+                try
+                {
+                    mang = fileContent.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+                    if (mang.Length > 15)
+                    {
+                        mang = null;
+                        MessageBox.Show("Mảng quá nhiều");
+                        return;
+                    }
+                    txtBanDau.Text = string.Join(" ", mang);
+                    TextBox[] txtArray = new TextBox[mang.Length];
+                    Label[] lblArray = new Label[mang.Length];
+                    for (int i = 0; i < mang.Length; i++)
+                    {
+                        TextBox txt = new TextBox();
+                        txt.Name = "txt" + i;
+                        txt.Text = mang[i].ToString();
+                        txt.TextAlign = HorizontalAlignment.Center;
+                        txt.Font = new Font("Times New Roman", 12);
+                        txt.Location = new Point(60 * i, 220);
+                        txt.Size = new Size(50, 30);
+                        txt.BackColor = Color.White;
+                        txt.ReadOnly = true;
+                        this.Controls.Add(txt);
+                        txtArray[i] = txt;
+                        Label lbl = new Label();
+                        lbl.Name = "lbl" + i;
+                        lbl.Text = "[" + i + "]".ToString();
+                        lbl.TextAlign = ContentAlignment.MiddleCenter;
+                        lbl.Font = new Font("Times New Roman", 12);
+                        lbl.Location = new Point(60 * i, 260);
+                        lbl.Size = new Size(50, 30);
+                        this.Controls.Add(lbl);
+                        lblArray[i] = lbl;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Nội dung tập tin không hợp lệ. Vui lòng kiểm tra lại.");
+                }
             }
-            
         }
         private void btnNhap_Click(object sender, EventArgs e)
         {
@@ -189,7 +228,6 @@ namespace DoAnTinHoc
                 MessageBox.Show("Vui lòng nhập chuỗi giá trị");
             }
         }
-
         private void btnxXoa_Click(object sender, EventArgs e)
         {
             txtNhap.Clear();
