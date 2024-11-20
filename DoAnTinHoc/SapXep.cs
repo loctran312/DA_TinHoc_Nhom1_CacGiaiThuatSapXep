@@ -28,6 +28,14 @@ namespace DoAnTinHoc
             {
                 e.Handled = true;
             }
+            else 
+            {
+                TextBox txt = sender as TextBox;
+                if (e.KeyChar == ' ' && (txt.Text.Length == 0 || txt.Text.EndsWith(" ")))
+                {
+                    e.Handled = true;
+                }
+            }
         }
         private void btnTapTin_Click(object sender, EventArgs e)
         {
@@ -37,7 +45,7 @@ namespace DoAnTinHoc
             {
                 string fileContent = File.ReadAllText(ofd.FileName);
                 int[] mang = fileContent.Split(' ').Select(int.Parse).ToArray();
-                
+
             }
         }
         private void btnNhap_Click(object sender, EventArgs e)
@@ -82,7 +90,7 @@ namespace DoAnTinHoc
         }
         private void SapXepMang(bool tangDan)
         {
-            int[] mangSapXep =  new int[mang.Length];
+            int[] mangSapXep = new int[mang.Length];
             lbxSapXep.Items.Clear();
             TextBox[] txtArray = new TextBox[mangSapXep.Length];
             Label[] lblArray = new Label[mangSapXep.Length];
@@ -96,7 +104,7 @@ namespace DoAnTinHoc
             {
                 case "Bubble Sort":
                     if (tangDan)
-                        CGiaiThuat.BubbleSort(mangSapXep,lbxSapXep, txtArray, lblArray);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray);
                     else
                         CGiaiThuat.BubbleSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
                     break;
@@ -117,7 +125,7 @@ namespace DoAnTinHoc
             {
                 txtArray[i].Text = mangSapXep[i].ToString();
             }
-           
+
         }
         private void btnSortAsc_Click(object sender, EventArgs e)
         {
@@ -147,12 +155,11 @@ namespace DoAnTinHoc
 
         private void btnxXoa_Click(object sender, EventArgs e)
         {
-           
-            try
+            txtNhap.Clear();
+            txtBanDau.Clear();
+            lbxSapXep.Items.Clear();
+            if (mang != null && mang.Length > 0)
             {
-                txtNhap.Clear();
-                txtBanDau.Clear();
-                lbxSapXep.Items.Clear();
                 TextBox[] txtArray = new TextBox[mang.Length];
                 Label[] lblArray = new Label[mang.Length];
                 for (int i = 0; i < mang.Length; i++)
@@ -160,13 +167,12 @@ namespace DoAnTinHoc
                     this.Controls.Remove(txtArray[i] = (TextBox)this.Controls.Find("txt" + i, true)[0]);
                     this.Controls.Remove(lblArray[i] = (Label)this.Controls.Find("lbl" + i, true)[0]);
                 }
-                
-            }    
-            catch
+                mang = null;
+            }
+            else
             {
-                MessageBox.Show(" đã xóa hết ");
-            }                
-            
+                MessageBox.Show("Đã xóa hết các phần tử");
+            }
         }
     }
 }
