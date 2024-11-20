@@ -102,9 +102,9 @@ namespace DoAnTinHoc
                     break;
                 case "Selection Sort":
                     if (tangDan)
-                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep);
+                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray);
                     else
-                        CGiaiThuat.SelectionSortDescending(mangSapXep, lbxSapXep);
+                        CGiaiThuat.SelectionSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
                     break;
                 case "Insertion Sort":
                     if (tangDan)
@@ -143,6 +143,30 @@ namespace DoAnTinHoc
             {
                 MessageBox.Show("Vui lòng nhập chuỗi giá trị");
             }
+        }
+
+        private void btnxXoa_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                txtNhap.Clear();
+                txtBanDau.Clear();
+                lbxSapXep.Items.Clear();
+                TextBox[] txtArray = new TextBox[mang.Length];
+                Label[] lblArray = new Label[mang.Length];
+                for (int i = 0; i < mang.Length; i++)
+                {
+                    this.Controls.Remove(txtArray[i] = (TextBox)this.Controls.Find("txt" + i, true)[0]);
+                    this.Controls.Remove(lblArray[i] = (Label)this.Controls.Find("lbl" + i, true)[0]);
+                }
+                
+            }    
+            catch
+            {
+                MessageBox.Show(" đã xóa hết ");
+            }                
+            
         }
     }
 }
