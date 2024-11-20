@@ -2,7 +2,6 @@ F:\Code\DoAnTinHoc\bin\Debug\DoAnTinHoc.exe.config
 F:\Code\DoAnTinHoc\bin\Debug\DoAnTinHoc.exe
 F:\Code\DoAnTinHoc\bin\Debug\DoAnTinHoc.pdb
 F:\Code\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.AssemblyReference.cache
-F:\Code\DoAnTinHoc\obj\Debug\DoAnTinHoc.GiaoDien.resources
 F:\Code\DoAnTinHoc\obj\Debug\DoAnTinHoc.Properties.Resources.resources
 F:\Code\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.GenerateResource.cache
 F:\Code\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.CoreCompileInputs.cache

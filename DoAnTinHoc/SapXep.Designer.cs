@@ -47,29 +47,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 46);
+            this.label1.Location = new System.Drawing.Point(38, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 25);
+            this.label1.Size = new System.Drawing.Size(110, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nhập số";
             // 
             // txtNhap
             // 
             this.txtNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhap.Location = new System.Drawing.Point(259, 39);
+            this.txtNhap.Location = new System.Drawing.Point(291, 49);
             this.txtNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNhap.Name = "txtNhap";
-            this.txtNhap.Size = new System.Drawing.Size(543, 26);
+            this.txtNhap.Size = new System.Drawing.Size(610, 30);
             this.txtNhap.TabIndex = 3;
             this.txtNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNhap_KeyPress);
             // 
             // btnNhap
             // 
             this.btnNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhap.Location = new System.Drawing.Point(806, 37);
+            this.btnNhap.Location = new System.Drawing.Point(907, 46);
             this.btnNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNhap.Name = "btnNhap";
-            this.btnNhap.Size = new System.Drawing.Size(120, 41);
+            this.btnNhap.Size = new System.Drawing.Size(135, 51);
             this.btnNhap.TabIndex = 4;
             this.btnNhap.Text = "Nhập";
             this.btnNhap.UseVisualStyleBackColor = true;
@@ -78,10 +78,10 @@
             // btnTapTin
             // 
             this.btnTapTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTapTin.Location = new System.Drawing.Point(806, 88);
+            this.btnTapTin.Location = new System.Drawing.Point(907, 110);
             this.btnTapTin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTapTin.Name = "btnTapTin";
-            this.btnTapTin.Size = new System.Drawing.Size(120, 41);
+            this.btnTapTin.Size = new System.Drawing.Size(135, 51);
             this.btnTapTin.TabIndex = 5;
             this.btnTapTin.Text = "Tập Tin";
             this.btnTapTin.UseVisualStyleBackColor = true;
@@ -91,39 +91,39 @@
             // 
             this.Lbl_BuocLam.AutoSize = true;
             this.Lbl_BuocLam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_BuocLam.Location = new System.Drawing.Point(34, 412);
+            this.Lbl_BuocLam.Location = new System.Drawing.Point(38, 515);
             this.Lbl_BuocLam.Name = "Lbl_BuocLam";
-            this.Lbl_BuocLam.Size = new System.Drawing.Size(104, 25);
+            this.Lbl_BuocLam.Size = new System.Drawing.Size(122, 29);
             this.Lbl_BuocLam.TabIndex = 11;
             this.Lbl_BuocLam.Text = "Các bước";
             // 
             // txtBanDau
             // 
             this.txtBanDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBanDau.Location = new System.Drawing.Point(210, 182);
+            this.txtBanDau.Location = new System.Drawing.Point(236, 228);
             this.txtBanDau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBanDau.Name = "txtBanDau";
             this.txtBanDau.ReadOnly = true;
-            this.txtBanDau.Size = new System.Drawing.Size(988, 26);
+            this.txtBanDau.Size = new System.Drawing.Size(1111, 30);
             this.txtBanDau.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 182);
+            this.label2.Location = new System.Drawing.Point(38, 228);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 25);
+            this.label2.Size = new System.Drawing.Size(192, 29);
             this.label2.TabIndex = 13;
             this.label2.Text = "Dãy số ban đầu";
             // 
             // btnSortAsc
             // 
             this.btnSortAsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSortAsc.Location = new System.Drawing.Point(982, 30);
+            this.btnSortAsc.Location = new System.Drawing.Point(1105, 38);
             this.btnSortAsc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSortAsc.Name = "btnSortAsc";
-            this.btnSortAsc.Size = new System.Drawing.Size(215, 37);
+            this.btnSortAsc.Size = new System.Drawing.Size(242, 46);
             this.btnSortAsc.TabIndex = 14;
             this.btnSortAsc.Text = "Sắp xếp tăng dần";
             this.btnSortAsc.UseVisualStyleBackColor = true;
@@ -132,10 +132,10 @@
             // btnSortDesc
             // 
             this.btnSortDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSortDesc.Location = new System.Drawing.Point(982, 68);
+            this.btnSortDesc.Location = new System.Drawing.Point(1105, 85);
             this.btnSortDesc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSortDesc.Name = "btnSortDesc";
-            this.btnSortDesc.Size = new System.Drawing.Size(215, 37);
+            this.btnSortDesc.Size = new System.Drawing.Size(242, 46);
             this.btnSortDesc.TabIndex = 15;
             this.btnSortDesc.Text = "Sắp xếp giảm dần";
             this.btnSortDesc.UseVisualStyleBackColor = true;
@@ -147,42 +147,41 @@
             this.cbbGiaiThuat.Items.AddRange(new object[] {
             "Bubble Sort",
             "Selection Sort",
-            "Insertion Sort",
-            "Counting Sort"});
-            this.cbbGiaiThuat.Location = new System.Drawing.Point(259, 100);
+            "Insertion Sort"});
+            this.cbbGiaiThuat.Location = new System.Drawing.Point(291, 125);
             this.cbbGiaiThuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbGiaiThuat.Name = "cbbGiaiThuat";
-            this.cbbGiaiThuat.Size = new System.Drawing.Size(543, 24);
+            this.cbbGiaiThuat.Size = new System.Drawing.Size(610, 28);
             this.cbbGiaiThuat.TabIndex = 16;
             // 
             // lbxSapXep
             // 
             this.lbxSapXep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxSapXep.FormattingEnabled = true;
-            this.lbxSapXep.ItemHeight = 25;
-            this.lbxSapXep.Location = new System.Drawing.Point(144, 412);
+            this.lbxSapXep.ItemHeight = 29;
+            this.lbxSapXep.Location = new System.Drawing.Point(162, 515);
             this.lbxSapXep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbxSapXep.Name = "lbxSapXep";
-            this.lbxSapXep.Size = new System.Drawing.Size(1080, 154);
+            this.lbxSapXep.Size = new System.Drawing.Size(1214, 178);
             this.lbxSapXep.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 100);
+            this.label3.Location = new System.Drawing.Point(38, 125);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 25);
+            this.label3.Size = new System.Drawing.Size(187, 29);
             this.label3.TabIndex = 17;
             this.label3.Text = "Chọn giải thuật";
             // 
             // btnxXoa
             // 
             this.btnxXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnxXoa.Location = new System.Drawing.Point(806, 139);
+            this.btnxXoa.Location = new System.Drawing.Point(907, 174);
             this.btnxXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnxXoa.Name = "btnxXoa";
-            this.btnxXoa.Size = new System.Drawing.Size(120, 41);
+            this.btnxXoa.Size = new System.Drawing.Size(135, 51);
             this.btnxXoa.TabIndex = 18;
             this.btnxXoa.Text = "Xóa";
             this.btnxXoa.UseVisualStyleBackColor = true;
@@ -191,9 +190,9 @@
             // SapXep
             // 
             this.AcceptButton = this.btnNhap;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 577);
+            this.ClientSize = new System.Drawing.Size(1420, 721);
             this.Controls.Add(this.btnxXoa);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbbGiaiThuat);
