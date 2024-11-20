@@ -17,7 +17,7 @@ namespace DoAnTinHoc
         private static int buoc;
         public static void hienMang(int[] mang, ListBox listBox, string chuoi)
         {
-            listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Seconds + " giây");
+            listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Minutes + " phút " + demtg.Elapsed.Seconds + " giây");
         }
         public static void moPhong(int[] mang, TextBox[] txtArray, Label[] lblArray, int indexI, int indexJ)
         {
@@ -26,13 +26,13 @@ namespace DoAnTinHoc
                 if (i == indexI)
                 {
                     txtArray[i].BackColor = Color.Aqua;
-                    lblArray[i].Text = "↑";
+                    lblArray[i].Text = "i" + " = [" +i+ "]";
                 }
                 else if(i == indexJ)
                 {
                     txtArray[i].BackColor = Color.Brown;
-                    lblArray[i].Text = "↑";
-                }
+                    lblArray[i].Text = "j"+ " = [" + i + "]";
+                }  
                 else
                 {
                     txtArray[i].BackColor = Color.White;
@@ -60,7 +60,6 @@ namespace DoAnTinHoc
                         await Task.Delay(3000);
                         txtArray[i].Text = mang[i].ToString();
                         txtArray[j].Text = mang[j].ToString();
-                        
                     }
                 }
             }
@@ -85,7 +84,6 @@ namespace DoAnTinHoc
                         await Task.Delay(3000);
                         txtArray[i].Text = mang[i].ToString();
                         txtArray[j].Text = mang[j].ToString();
-                       
                     }
                 }
             }
@@ -104,8 +102,7 @@ namespace DoAnTinHoc
                     if (mang[j] < mang[minIndex])
                     {
                         minIndex = j;    
-                    }
-                    
+                    }  
                 }
                 int temp = mang[minIndex];
                 mang[minIndex] = mang[i];

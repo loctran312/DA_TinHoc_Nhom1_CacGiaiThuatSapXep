@@ -45,47 +45,64 @@ namespace DoAnTinHoc
             {
                 string fileContent = File.ReadAllText(ofd.FileName);
                 int[] mang = fileContent.Split(' ').Select(int.Parse).ToArray();
-
             }
+            
         }
         private void btnNhap_Click(object sender, EventArgs e)
         {
-            try
+            if (mang == null || mang.Length == 0)
             {
-                if (txtNhap.Text != "")
+                try
                 {
-                    mang = txtNhap.Text.Split(' ').Select(int.Parse).ToArray();
-                    txtBanDau.Text = string.Join(" ", mang);
-                    TextBox[] txtArray = new TextBox[mang.Length];
-                    Label[] lblArray = new Label[mang.Length];
-                    for (int i = 0; i < mang.Length; i++)
+                    if (txtNhap.Text != "")
                     {
-                        TextBox txt = new TextBox();
-                        txt.Name = "txt" + i;
-                        txt.Text = mang[i].ToString();
-                        txt.TextAlign = HorizontalAlignment.Center;
-                        txt.Font = new Font("Times New Roman", 12);
-                        txt.Location = new Point(60 * i, 220);
-                        txt.Size = new Size(50, 30);
-                        txt.BackColor = Color.White;
-                        txt.ReadOnly = true;
-                        this.Controls.Add(txt);
-                        txtArray[i] = txt;
-                        Label lbl = new Label();
-                        lbl.Name = "lbl" + i;
-                        lbl.Text = "[" + i + "]".ToString();
-                        lbl.TextAlign = ContentAlignment.MiddleCenter;
-                        lbl.Font = new Font("Times New Roman", 12);
-                        lbl.Location = new Point(60 * i, 260);
-                        lbl.Size = new Size(50, 30);
-                        this.Controls.Add(lbl);
-                        lblArray[i] = lbl;
+                        mang = txtNhap.Text.Split(' ').Select(int.Parse).ToArray();
+                        TextBox[] txtArray = new TextBox[mang.Length];
+                        Label[] lblArray = new Label[mang.Length];
+                        if (mang != null && mang.Length > 15)
+                        {
+                            mang = null;
+                            MessageBox.Show("Mảng quá nhiều");
+                            return;
+                        }
+                        else
+                        {
+                            txtBanDau.Text = string.Join(" ", mang);
+                            for (int i = 0; i < mang.Length; i++)
+                            {
+                                TextBox txt = new TextBox();
+                                txt.Name = "txt" + i;
+                                txt.Text = mang[i].ToString();
+                                txt.TextAlign = HorizontalAlignment.Center;
+                                txt.Font = new Font("Times New Roman", 12);
+                                txt.Location = new Point(60 * i, 220);
+                                txt.Size = new Size(50, 30);
+                                txt.BackColor = Color.White;
+                                txt.ReadOnly = true;
+                                this.Controls.Add(txt);
+                                txtArray[i] = txt;
+                                Label lbl = new Label();
+                                lbl.Name = "lbl" + i;
+                                lbl.Text = "[" + i + "]".ToString();
+                                lbl.TextAlign = ContentAlignment.MiddleCenter;
+                                lbl.Font = new Font("Times New Roman", 12);
+                                lbl.Location = new Point(60 * i, 260);
+                                lbl.Size = new Size(50, 30);
+                                this.Controls.Add(lbl);
+                                lblArray[i] = lbl;
+                            }
+                        }
                     }
                 }
+                catch
+                {
+                    MessageBox.Show("Vui lòng nhập chuỗi giá trị");
+                }
+
             }
-            catch
+            else
             {
-                MessageBox.Show("Vui lòng nhập chuỗi giá trị");
+                MessageBox.Show("Đã có dữ liệu");
             }
         }
         private void SapXepMang(bool tangDan)
@@ -125,27 +142,47 @@ namespace DoAnTinHoc
             {
                 txtArray[i].Text = mangSapXep[i].ToString();
             }
-
         }
         private void btnSortAsc_Click(object sender, EventArgs e)
         {
-
             if (mang != null && mang.Length > 0)
             {
-                SapXepMang(true);
+                int[] mangTam = (int[])mang.Clone();
+                Array.Sort(mangTam);
+                int dem = 0;
+                for (int i = 0; i < mang.Length; i++)
+                {
+                    if (mangTam[i] == mang[i])
+                        dem++;
+                }
+                if (dem == mang.Length)
+                    MessageBox.Show("Mảng đã được sắp xếp tăng dần");
+                else
+                    SapXepMang(true);
             }
             else
             {
                 MessageBox.Show("Vui lòng nhập chuỗi giá trị");
             }
 
-
         }
         private void btnSortDesc_Click(object sender, EventArgs e)
         {
             if (mang != null && mang.Length > 0)
             {
-                SapXepMang(false);
+                int[] mangTam = (int[])mang.Clone();
+                Array.Sort(mangTam);
+                Array.Reverse(mangTam);
+                int dem = 0;
+                for (int i = 0; i < mang.Length; i++)
+                {
+                    if (mangTam[i] == mang[i])
+                        dem++;
+                }
+                if (dem == mang.Length)
+                    MessageBox.Show("Mảng đã được sắp xếp giảm dần");
+                else
+                    SapXepMang(false);
             }
             else
             {

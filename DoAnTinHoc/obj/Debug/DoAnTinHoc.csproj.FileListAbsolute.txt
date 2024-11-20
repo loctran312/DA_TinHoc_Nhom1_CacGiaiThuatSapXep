@@ -51,3 +51,14 @@ F:\DoAnTinHoc\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.GenerateResource.cache
 F:\DoAnTinHoc\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.CoreCompileInputs.cache
 F:\DoAnTinHoc\DoAnTinHoc\obj\Debug\DoAnTinHoc.exe
 F:\DoAnTinHoc\DoAnTinHoc\obj\Debug\DoAnTinHoc.pdb
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\bin\Debug\DoAnTinHoc.exe.config
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\bin\Debug\DoAnTinHoc.exe
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\bin\Debug\DoAnTinHoc.pdb
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.AssemblyReference.cache
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.SuggestedBindingRedirects.cache
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\obj\Debug\DoAnTinHoc.Properties.Resources.resources
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\obj\Debug\DoAnTinHoc.SapXep.resources
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.GenerateResource.cache
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.CoreCompileInputs.cache
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\obj\Debug\DoAnTinHoc.exe
+D:\hoc\Thư mục mới\Thư mục mới\DoAnTinHoc\obj\Debug\DoAnTinHoc.pdb

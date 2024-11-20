@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SapXep));
             this.label1 = new System.Windows.Forms.Label();
             this.txtNhap = new System.Windows.Forms.TextBox();
             this.btnNhap = new System.Windows.Forms.Button();
@@ -46,15 +47,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 58);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("AnkeCalligraph", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Yellow;
+            this.label1.Location = new System.Drawing.Point(41, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 29);
+            this.label1.Size = new System.Drawing.Size(162, 52);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nhập số";
             // 
             // txtNhap
             // 
+            this.txtNhap.BackColor = System.Drawing.Color.White;
             this.txtNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNhap.Location = new System.Drawing.Point(291, 49);
             this.txtNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -90,15 +94,18 @@
             // Lbl_BuocLam
             // 
             this.Lbl_BuocLam.AutoSize = true;
-            this.Lbl_BuocLam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_BuocLam.Location = new System.Drawing.Point(38, 515);
+            this.Lbl_BuocLam.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_BuocLam.Font = new System.Drawing.Font("AnkeCalligraph", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_BuocLam.ForeColor = System.Drawing.Color.Yellow;
+            this.Lbl_BuocLam.Location = new System.Drawing.Point(-7, 515);
             this.Lbl_BuocLam.Name = "Lbl_BuocLam";
-            this.Lbl_BuocLam.Size = new System.Drawing.Size(122, 29);
+            this.Lbl_BuocLam.Size = new System.Drawing.Size(172, 52);
             this.Lbl_BuocLam.TabIndex = 11;
             this.Lbl_BuocLam.Text = "Các bước";
             // 
             // txtBanDau
             // 
+            this.txtBanDau.BackColor = System.Drawing.Color.White;
             this.txtBanDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBanDau.Location = new System.Drawing.Point(236, 228);
             this.txtBanDau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -110,10 +117,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 228);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("AnkeCalligraph", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Yellow;
+            this.label2.Location = new System.Drawing.Point(30, 228);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 29);
+            this.label2.Size = new System.Drawing.Size(280, 52);
             this.label2.TabIndex = 13;
             this.label2.Text = "Dãy số ban đầu";
             // 
@@ -143,6 +152,7 @@
             // 
             // cbbGiaiThuat
             // 
+            this.cbbGiaiThuat.BackColor = System.Drawing.Color.White;
             this.cbbGiaiThuat.FormattingEnabled = true;
             this.cbbGiaiThuat.Items.AddRange(new object[] {
             "Bubble Sort",
@@ -156,6 +166,7 @@
             // 
             // lbxSapXep
             // 
+            this.lbxSapXep.BackColor = System.Drawing.Color.White;
             this.lbxSapXep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxSapXep.FormattingEnabled = true;
             this.lbxSapXep.ItemHeight = 29;
@@ -168,10 +179,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 125);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("AnkeCalligraph", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Yellow;
+            this.label3.Location = new System.Drawing.Point(32, 125);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(187, 29);
+            this.label3.Size = new System.Drawing.Size(230, 39);
             this.label3.TabIndex = 17;
             this.label3.Text = "Chọn giải thuật";
             // 
@@ -192,6 +205,8 @@
             this.AcceptButton = this.btnNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1420, 721);
             this.Controls.Add(this.btnxXoa);
             this.Controls.Add(this.label3);
@@ -208,6 +223,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SapXep";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sắp Xếp";
             this.Load += new System.EventHandler(this.SapXep_Load);
             this.ResumeLayout(false);
@@ -216,7 +232,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNhap;
         private System.Windows.Forms.Button btnNhap;
         private System.Windows.Forms.Button btnTapTin;
@@ -229,5 +244,6 @@
         private System.Windows.Forms.ListBox lbxSapXep;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnxXoa;
+        private System.Windows.Forms.Label label1;
     }
 }
