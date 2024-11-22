@@ -154,45 +154,35 @@ namespace DoAnTinHoc
         }
         private void SapXepMang(bool tangDan)
         {
-            int[] mangSapXepbbs=(int[])mang.Clone();
-            int[] mangSapXepsls = (int[])mang.Clone();
-            int[] mangSapXepiss = (int[])mang.Clone();
-            TextBox[] txtArray1= new TextBox[mangSapXepbbs.Length];
-            TextBox[] txtArray2= new TextBox[mangSapXepsls.Length];
-            TextBox[] txtArray3= new TextBox[mangSapXepiss.Length];
-            Label[] lblArray1 = new Label[mangSapXepbbs.Length];
-            Label[] lblArray2 = new Label[mangSapXepsls.Length];
-            Label[] lblArray3 = new Label[mangSapXepiss.Length];
+            int[] mangSapXep = (int[])mang.Clone();
+            TextBox[] txtArray = new TextBox[mangSapXep.Length];
+            Label[] lblArray = new Label[mangSapXep.Length];
             lbxSapXep.Items.Clear();
-            KhoiTaoMoPhongSapXep(mangSapXepbbs,txtArray1,lblArray1);
-            KhoiTaoMoPhongSapXep(mangSapXepsls,txtArray2,lblArray2);
-            KhoiTaoMoPhongSapXep(mangSapXepiss, txtArray3, lblArray3);
+            KhoiTaoMoPhongSapXep(mangSapXep,txtArray,lblArray);
             switch (cbbGiaiThuat.SelectedItem.ToString())
             {
                 case "Bubble Sort":
                     if (tangDan)
-                        CGiaiThuat.BubbleSort(mangSapXepbbs, lbxSapXep,txtArray1,lblArray1);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep,txtArray,lblArray);
                     else
-                        CGiaiThuat.BubbleSortDescending(mangSapXepbbs, lbxSapXep, txtArray1, lblArray1);
+                        CGiaiThuat.BubbleSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
                     break;
                 case "Selection Sort":
                     if (tangDan)
-                        CGiaiThuat.SelectionSort(mangSapXepsls, lbxSapXep, txtArray2, lblArray2);
+                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray);
                     else
-                        CGiaiThuat.SelectionSortDescending(mangSapXepsls, lbxSapXep, txtArray2, lblArray2);
+                        CGiaiThuat.SelectionSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
                     break;
                 case "Insertion Sort":
                     if (tangDan)
-                        CGiaiThuat.InsertionSort(mangSapXepiss, lbxSapXep, txtArray3, lblArray3);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray);
                     else
-                        CGiaiThuat.InsertionSortDescending(mangSapXepiss, lbxSapXep, txtArray3, lblArray3);
+                        CGiaiThuat.InsertionSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
                     break;
             }
             for (int i = 0; i < mang.Length; i++)
             {
-                txtArray1[i].Text = mangSapXepbbs[i].ToString();
-                txtArray2[i].Text = mangSapXepsls[i].ToString();    
-                txtArray3[i].Text = mangSapXepiss[i].ToString();    
+                txtArray[i].Text = mangSapXep[i].ToString(); 
             }
         }
         private void btnSortAsc_Click(object sender, EventArgs e)
