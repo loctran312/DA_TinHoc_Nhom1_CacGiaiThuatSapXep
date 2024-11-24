@@ -42,6 +42,9 @@
             this.lbxSapXep = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnxXoa = new System.Windows.Forms.Button();
+            this.numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,7 +53,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("AnkeCalligraph", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(41, 45);
+            this.label1.Location = new System.Drawing.Point(12, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 52);
             this.label1.TabIndex = 2;
@@ -60,10 +63,10 @@
             // 
             this.txtNhap.BackColor = System.Drawing.Color.White;
             this.txtNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhap.Location = new System.Drawing.Point(291, 49);
+            this.txtNhap.Location = new System.Drawing.Point(305, 49);
             this.txtNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNhap.Name = "txtNhap";
-            this.txtNhap.Size = new System.Drawing.Size(610, 30);
+            this.txtNhap.Size = new System.Drawing.Size(596, 30);
             this.txtNhap.TabIndex = 3;
             this.txtNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNhap_KeyPress);
             // 
@@ -158,10 +161,10 @@
             "Bubble Sort",
             "Selection Sort",
             "Insertion Sort"});
-            this.cbbGiaiThuat.Location = new System.Drawing.Point(291, 125);
+            this.cbbGiaiThuat.Location = new System.Drawing.Point(305, 125);
             this.cbbGiaiThuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbGiaiThuat.Name = "cbbGiaiThuat";
-            this.cbbGiaiThuat.Size = new System.Drawing.Size(610, 28);
+            this.cbbGiaiThuat.Size = new System.Drawing.Size(596, 28);
             this.cbbGiaiThuat.TabIndex = 16;
             // 
             // lbxSapXep
@@ -180,11 +183,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("AnkeCalligraph", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("AnkeCalligraph", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(32, 125);
+            this.label3.Location = new System.Drawing.Point(-7, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(230, 39);
+            this.label3.Size = new System.Drawing.Size(306, 52);
             this.label3.TabIndex = 17;
             this.label3.Text = "Chọn giải thuật";
             // 
@@ -200,6 +203,33 @@
             this.btnxXoa.UseVisualStyleBackColor = true;
             this.btnxXoa.Click += new System.EventHandler(this.btnxXoa_Click);
             // 
+            // numericUpDown
+            // 
+            this.numericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown.Location = new System.Drawing.Point(768, 183);
+            this.numericUpDown.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown.Name = "numericUpDown";
+            this.numericUpDown.ReadOnly = true;
+            this.numericUpDown.Size = new System.Drawing.Size(120, 35);
+            this.numericUpDown.TabIndex = 19;
+            this.numericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("AnkeCalligraph", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Yellow;
+            this.label4.Location = new System.Drawing.Point(427, 174);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(315, 52);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Tốc độ mô phỏng";
+            // 
             // SapXep
             // 
             this.AcceptButton = this.btnNhap;
@@ -208,6 +238,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1420, 721);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.numericUpDown);
             this.Controls.Add(this.btnxXoa);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbbGiaiThuat);
@@ -226,6 +258,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sắp Xếp";
             this.Load += new System.EventHandler(this.SapXep_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,5 +278,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnxXoa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDown;
+        private System.Windows.Forms.Label label4;
     }
 }

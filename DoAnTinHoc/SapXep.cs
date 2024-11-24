@@ -14,13 +14,19 @@ namespace DoAnTinHoc
     public partial class SapXep : Form
     {
         private int[] mang;
+        public static int delay;
         public SapXep()
         {
             InitializeComponent();
+            delay = 6000 - 1000 * (int)numericUpDown.Value;
         }
         private void SapXep_Load(object sender, EventArgs e)
         {
             cbbGiaiThuat.SelectedIndex = 0;
+        }
+        private void numericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            delay = 6000 - 1000 * (int)numericUpDown.Value;
         }
         private void txtNhap_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -144,12 +150,12 @@ namespace DoAnTinHoc
                 MessageBox.Show("Đã có dữ liệu");
             }
         }
-        private void KhoiTaoMoPhongSapXep(int[] a, TextBox[] b, Label[]c)
+        private void KhoiTaoMoPhongSapXep(int[] mang, TextBox[] txtArray, Label[] lblArray)
         {
             for (int i = 0; i < mang.Length; i++)
             {
-                b[i] = (TextBox)this.Controls.Find("txt" + i, true)[0];
-                c[i] = (Label)this.Controls.Find("lbl" + i, true)[0];
+                txtArray[i] = (TextBox)this.Controls.Find("txt" + i, true)[0];
+                lblArray[i] = (Label)this.Controls.Find("lbl" + i, true)[0];
             }
         }
         private void SapXepMang(bool tangDan)
@@ -158,12 +164,12 @@ namespace DoAnTinHoc
             TextBox[] txtArray = new TextBox[mangSapXep.Length];
             Label[] lblArray = new Label[mangSapXep.Length];
             lbxSapXep.Items.Clear();
-            KhoiTaoMoPhongSapXep(mangSapXep,txtArray,lblArray);
+            KhoiTaoMoPhongSapXep(mangSapXep, txtArray, lblArray);
             switch (cbbGiaiThuat.SelectedItem.ToString())
             {
                 case "Bubble Sort":
                     if (tangDan)
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep,txtArray,lblArray);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray);
                     else
                         CGiaiThuat.BubbleSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
                     break;
@@ -182,7 +188,7 @@ namespace DoAnTinHoc
             }
             for (int i = 0; i < mang.Length; i++)
             {
-                txtArray[i].Text = mangSapXep[i].ToString(); 
+                txtArray[i].Text = mangSapXep[i].ToString();
             }
         }
         private void btnSortAsc_Click(object sender, EventArgs e)
