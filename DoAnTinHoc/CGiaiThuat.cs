@@ -17,6 +17,7 @@ namespace DoAnTinHoc
         private static int buoc;
         public static void hienMang(int[] mang, ListBox listBox, string chuoi)
         {
+
             listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Minutes + " phút " + demtg.Elapsed.Seconds + " giây");
         }
         public static void moPhong(int[] mang, TextBox[] txtArray, Label[] lblArray, int indexI, int indexJ)
@@ -43,6 +44,8 @@ namespace DoAnTinHoc
         public static Stopwatch demtg = new Stopwatch();
         public static async void BubbleSort(int[] mang,ListBox listbox, TextBox[] txtArray, Label[] lblArray)
         {
+           
+
             buoc = 1;
             demtg.Reset();
             demtg.Start();
@@ -55,6 +58,10 @@ namespace DoAnTinHoc
                         int temp = mang[i];
                         mang[i] = mang[j];
                         mang[j] = temp;
+                        while (SapXep.pause == true)
+                        {
+                            await Task.Delay(100);
+                        }
                         moPhong(mang, txtArray, lblArray, i, j);
                         hienMang(mang, listbox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
                         await Task.Delay(SapXep.delay);
@@ -79,6 +86,10 @@ namespace DoAnTinHoc
                         int temp = mang[i];
                         mang[i] = mang[j];
                         mang[j] = temp;
+                        while (SapXep.pause == true)
+                        {
+                            await Task.Delay(100);
+                        }
                         moPhong(mang, txtArray, lblArray, i, j);
                         hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
                         await Task.Delay(SapXep.delay);
@@ -107,6 +118,10 @@ namespace DoAnTinHoc
                 int temp = mang[minIndex];
                 mang[minIndex] = mang[i];
                 mang[i] = temp;
+                while (SapXep.pause == true)
+                {
+                    await Task.Delay(100);
+                }
                 moPhong(mang, txtArray, lblArray, i,minIndex);
                 hienMang(mang, listBox, $"Bước {buoc++}:  Đổi {mang[i]} và {mang[minIndex]} => ");
                 await Task.Delay(SapXep.delay);
@@ -133,6 +148,10 @@ namespace DoAnTinHoc
                 int temp = mang[maxIndex];
                 mang[maxIndex] = mang[i];
                 mang[i] = temp;
+                while (SapXep.pause == true)
+                {
+                    await Task.Delay(100);
+                }
                 moPhong(mang, txtArray, lblArray, i, maxIndex);
                 hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[maxIndex]} => ");
                 await Task.Delay(SapXep.delay);
@@ -156,6 +175,10 @@ namespace DoAnTinHoc
                     j--;
                 }
                 mang[j + 1] = key;
+                while (SapXep.pause == true)
+                {
+                    await Task.Delay(100);
+                }
                 moPhong(mang, txtArray, lblArray, j + 1, i);
                 hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
                 await Task.Delay(SapXep.delay);
@@ -181,7 +204,11 @@ namespace DoAnTinHoc
                     j--;
                 }
                 mang[j + 1] = key;
-                moPhong(mang, txtArray, lblArray, j + 1, i);
+                while (SapXep.pause == true)
+                {
+                    await Task.Delay(100);
+                }
+                moPhong(mang, txtArray, lblArray, j + 1, i); 
                 hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
                 await Task.Delay(SapXep.delay);
                 for (int k = 0; k < mang.Length; k++)

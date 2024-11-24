@@ -15,10 +15,14 @@ namespace DoAnTinHoc
     {
         private int[] mang;
         public static int delay;
+        public static bool pause;
+
         public SapXep()
         {
+
             InitializeComponent();
             delay = 6000 - 1000 * (int)numericUpDown.Value;
+            pause = false;
         }
         private void SapXep_Load(object sender, EventArgs e)
         {
@@ -34,7 +38,7 @@ namespace DoAnTinHoc
             {
                 e.Handled = true;
             }
-            else 
+            else
             {
                 TextBox txt = sender as TextBox;
                 if (e.KeyChar == ' ' && (txt.Text.Length == 0 || txt.Text.EndsWith(" ")))
@@ -45,9 +49,9 @@ namespace DoAnTinHoc
         }
         private void btnTapTin_Click(object sender, EventArgs e)
         {
-            
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Text Files (*.txt)|*.txt";
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Text Files (*.txt)|*.txt";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string fileContent = File.ReadAllText(ofd.FileName);
@@ -256,6 +260,42 @@ namespace DoAnTinHoc
             else
             {
                 MessageBox.Show("Đã xóa hết các phần tử");
+            }
+        }
+
+        private void btnDung_Click(object sender, EventArgs e)
+        {
+            if (pause == false)
+            {
+                pause = true;
+                btnDung.Text = " Tiếp Tục ";
+
+            }
+            else
+            {
+                pause = false;
+                btnDung.Text = " Dừng ";
+            }
+
+        }
+
+        private void btnNgauNhien_Click(object sender, EventArgs e)
+        {
+            if (mang == null || mang.Length == 0)
+            {
+                Random rand = new Random();
+                int lenght = rand.Next(7, 14);
+                HashSet<int> randArr = new HashSet<int>();
+                for (int i = 0; i < lenght; i++)
+                {
+                    randArr.Add(rand.Next(1, 50));
+
+                }
+                txtNhap.Text = string.Join(" ", randArr);
+            }
+            else
+            {
+                MessageBox.Show("Đã có dữ liệu");
             }
         }
     }
