@@ -63,7 +63,10 @@ namespace DoAnTinHoc
                             await Task.Delay(100);
                         }
                         moPhong(mang, txtArray, lblArray, i, j);
-                        hienMang(mang, listbox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
+                        if (SapXep.clear == false)
+                        {
+                            hienMang(mang, listbox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
+                        }
                         await Task.Delay(SapXep.delay);
                         txtArray[i].Text = mang[i].ToString();
                         txtArray[j].Text = mang[j].ToString();
@@ -71,6 +74,7 @@ namespace DoAnTinHoc
                 }
             }
             demtg.Stop();
+            SapXep.running = false;
         }
         public static async void BubbleSortDescending(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
         {
@@ -91,7 +95,10 @@ namespace DoAnTinHoc
                             await Task.Delay(100);
                         }
                         moPhong(mang, txtArray, lblArray, i, j);
-                        hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
+                        if (SapXep.clear == false)
+                        {
+                            hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
+                        }
                         await Task.Delay(SapXep.delay);
                         txtArray[i].Text = mang[i].ToString();
                         txtArray[j].Text = mang[j].ToString();
@@ -99,6 +106,7 @@ namespace DoAnTinHoc
                 }
             }
             demtg.Stop();
+            SapXep.running = false;
         }
         public static async void SelectionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
         {
@@ -123,12 +131,16 @@ namespace DoAnTinHoc
                     await Task.Delay(100);
                 }
                 moPhong(mang, txtArray, lblArray, i,minIndex);
-                hienMang(mang, listBox, $"Bước {buoc++}:  Đổi {mang[i]} và {mang[minIndex]} => ");
+                if (SapXep.clear == false)
+                {
+                    hienMang(mang, listBox, $"Bước {buoc++}:  Đổi {mang[i]} và {mang[minIndex]} => ");
+                }
                 await Task.Delay(SapXep.delay);
                 txtArray[i].Text = mang[i].ToString();
                 txtArray[minIndex].Text = mang[minIndex].ToString();
             }
             demtg.Stop();
+            SapXep.running = false;
         }
         public static async void SelectionSortDescending(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
         {
@@ -153,12 +165,16 @@ namespace DoAnTinHoc
                     await Task.Delay(100);
                 }
                 moPhong(mang, txtArray, lblArray, i, maxIndex);
-                hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[maxIndex]} => ");
+                if (SapXep.clear == false)
+                {
+                    hienMang(mang, listBox, $"Bước {buoc++}: Đổi {mang[i]} và {mang[maxIndex]} => ");
+                }
                 await Task.Delay(SapXep.delay);
                 txtArray[i].Text = mang[i].ToString();
                 txtArray[maxIndex].Text = mang[maxIndex].ToString();
             }
             demtg.Stop();
+            SapXep.running = false;
         }
         public static async void InsertionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
         {
@@ -180,7 +196,10 @@ namespace DoAnTinHoc
                     await Task.Delay(100);
                 }
                 moPhong(mang, txtArray, lblArray, j + 1, i);
-                hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                if (SapXep.clear == false)
+                {
+                    hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                }
                 await Task.Delay(SapXep.delay);
                 for (int k = 0; k < mang.Length; k++)
                 {
@@ -188,6 +207,7 @@ namespace DoAnTinHoc
                 }
             }
             demtg.Stop();
+            SapXep.running = false;
         }
         public static async void InsertionSortDescending(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray)
         {
@@ -208,8 +228,11 @@ namespace DoAnTinHoc
                 {
                     await Task.Delay(100);
                 }
-                moPhong(mang, txtArray, lblArray, j + 1, i); 
-                hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                moPhong(mang, txtArray, lblArray, j + 1, i);
+                if (SapXep.clear == false)
+                {
+                    hienMang(mang, listBox, $"Bước {buoc++}: Chèn {key} vào vị trí {j + 1} => ");
+                }
                 await Task.Delay(SapXep.delay);
                 for (int k = 0; k < mang.Length; k++)
                 {
@@ -217,6 +240,7 @@ namespace DoAnTinHoc
                 }
             }
             demtg.Stop();
+            SapXep.running = false;
         }
     }
 }

@@ -24,7 +24,6 @@ F:\DoAnTinHoc\bin\Debug\DoAnTinHoc.exe.config
 F:\DoAnTinHoc\bin\Debug\DoAnTinHoc.exe
 F:\DoAnTinHoc\bin\Debug\DoAnTinHoc.pdb
 F:\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.AssemblyReference.cache
-F:\DoAnTinHoc\obj\Debug\DoAnTinHoc.GiaoDien.resources
 F:\DoAnTinHoc\obj\Debug\DoAnTinHoc.Properties.Resources.resources
 F:\DoAnTinHoc\obj\Debug\DoAnTinHoc.SapXep.resources
 F:\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.GenerateResource.cache

@@ -16,7 +16,8 @@ namespace DoAnTinHoc
         private int[] mang;
         public static int delay;
         public static bool pause;
-
+        public static bool clear;
+        public static bool running;
         public SapXep()
         {
 
@@ -164,10 +165,12 @@ namespace DoAnTinHoc
         }
         private void SapXepMang(bool tangDan)
         {
+            running = true;
             int[] mangSapXep = (int[])mang.Clone();
             TextBox[] txtArray = new TextBox[mangSapXep.Length];
             Label[] lblArray = new Label[mangSapXep.Length];
             lbxSapXep.Items.Clear();
+            clear = false;
             KhoiTaoMoPhongSapXep(mangSapXep, txtArray, lblArray);
             switch (cbbGiaiThuat.SelectedItem.ToString())
             {
@@ -246,6 +249,10 @@ namespace DoAnTinHoc
             txtNhap.Clear();
             txtBanDau.Clear();
             lbxSapXep.Items.Clear();
+            clear = true;
+            pause = false;
+            btnDung.Text = " Dừng ";
+            running = false;
             if (mang != null && mang.Length > 0)
             {
                 TextBox[] txtArray = new TextBox[mang.Length];
@@ -265,18 +272,24 @@ namespace DoAnTinHoc
 
         private void btnDung_Click(object sender, EventArgs e)
         {
-            if (pause == false)
+            if (running == true)
             {
-                pause = true;
-                btnDung.Text = " Tiếp Tục ";
+                if (pause == false)
+                {
+                    pause = true;
+                    btnDung.Text = " Tiếp Tục ";
 
+                }
+                else
+                {
+                    pause = false;
+                    btnDung.Text = " Dừng ";
+                }
             }
             else
             {
-                pause = false;
-                btnDung.Text = " Dừng ";
-            }
-
+                MessageBox.Show("Vui lòng nhấn chọn sắp xếp");
+            }    
         }
 
         private void btnNgauNhien_Click(object sender, EventArgs e)
