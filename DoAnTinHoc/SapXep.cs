@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Media;
 
 namespace DoAnTinHoc
 {
@@ -20,7 +21,6 @@ namespace DoAnTinHoc
         public static bool running;
         public SapXep()
         {
-
             InitializeComponent();
             delay = 6000 - 1000 * (int)numericUpDown.Value;
             pause = false;
@@ -58,6 +58,13 @@ namespace DoAnTinHoc
                 string fileContent = File.ReadAllText(ofd.FileName);
                 try
                 {
+                    var values = fileContent.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+                    if (values.Distinct().Count() != values.Length)
+                    {
+                        MessageBox.Show("Dữ liệu trong tập tin có giá trị trùng lặp. Vui lòng kiểm tra lại.");
+                        return;
+                    }
+                    mang = values;
                     mang = fileContent.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
                     if (mang.Length > 15)
                     {
@@ -106,6 +113,13 @@ namespace DoAnTinHoc
                 {
                     if (txtNhap.Text != "")
                     {
+                        var values = txtNhap.Text.Split(' ').Select(int.Parse).ToArray();
+                        if (values.Distinct().Count() != values.Length)
+                        {
+                            MessageBox.Show("Dữ liệu nhập vào có giá trị trùng lặp. Vui lòng nhập lại.");
+                            return;
+                        }
+                        mang = values;
                         mang = txtNhap.Text.Split(' ').Select(int.Parse).ToArray();
                         TextBox[] txtArray = new TextBox[mang.Length];
                         Label[] lblArray = new Label[mang.Length];
@@ -146,7 +160,7 @@ namespace DoAnTinHoc
                 }
                 catch
                 {
-                    MessageBox.Show("Vui lòng nhập chuỗi giá trị");
+                    MessageBox.Show("Vui lòng nhập chuỗi giá trị hợp lệ");
                 }
 
             }
