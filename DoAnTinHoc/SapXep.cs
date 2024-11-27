@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Media;
+using System.Diagnostics.Eventing.Reader;
 
 namespace DoAnTinHoc
 {
@@ -21,6 +21,7 @@ namespace DoAnTinHoc
         public static bool running;
         public SapXep()
         {
+
             InitializeComponent();
             delay = 6000 - 1000 * (int)numericUpDown.Value;
             pause = false;
@@ -190,21 +191,21 @@ namespace DoAnTinHoc
             {
                 case "Bubble Sort":
                     if (tangDan)
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray, true);
                     else
-                        CGiaiThuat.BubbleSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray, false);
                     break;
                 case "Selection Sort":
                     if (tangDan)
-                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray);
+                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray, true);
                     else
-                        CGiaiThuat.SelectionSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
+                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray, false);
                     break;
                 case "Insertion Sort":
                     if (tangDan)
-                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray, true);
                     else
-                        CGiaiThuat.InsertionSortDescending(mangSapXep, lbxSapXep, txtArray, lblArray);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray, false);
                     break;
             }
             for (int i = 0; i < mang.Length; i++)
@@ -260,27 +261,34 @@ namespace DoAnTinHoc
         }
         private void btnxXoa_Click(object sender, EventArgs e)
         {
-            txtNhap.Clear();
-            txtBanDau.Clear();
-            lbxSapXep.Items.Clear();
-            clear = true;
-            pause = false;
-            btnDung.Text = " Dừng ";
-            running = false;
-            if (mang != null && mang.Length > 0)
+            if (running == true)
             {
-                TextBox[] txtArray = new TextBox[mang.Length];
-                Label[] lblArray = new Label[mang.Length];
-                for (int i = 0; i < mang.Length; i++)
-                {
-                    this.Controls.Remove(txtArray[i] = (TextBox)this.Controls.Find("txt" + i, true)[0]);
-                    this.Controls.Remove(lblArray[i] = (Label)this.Controls.Find("lbl" + i, true)[0]);
-                }
-                mang = null;
-            }
+                MessageBox.Show("Chương trình đang chạy vui lòng đợi!");
+            }   
             else
             {
-                MessageBox.Show("Đã xóa hết các phần tử");
+                txtNhap.Clear();
+                txtBanDau.Clear();
+                lbxSapXep.Items.Clear();
+                clear = true;
+                pause = false;
+                btnDung.Text = " Dừng ";
+                running = false;
+                if (mang != null && mang.Length > 0)
+                {
+                    TextBox[] txtArray = new TextBox[mang.Length];
+                    Label[] lblArray = new Label[mang.Length];
+                    for (int i = 0; i < mang.Length; i++)
+                    {
+                        this.Controls.Remove(txtArray[i] = (TextBox)this.Controls.Find("txt" + i, true)[0]);
+                        this.Controls.Remove(lblArray[i] = (Label)this.Controls.Find("lbl" + i, true)[0]);
+                    }
+                    mang = null;
+                }
+                else
+                {
+                    MessageBox.Show("Đã xóa hết các phần tử");
+                }
             }
         }
 
