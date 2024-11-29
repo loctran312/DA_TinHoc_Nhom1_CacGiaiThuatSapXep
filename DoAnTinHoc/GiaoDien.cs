@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,43 +15,54 @@ namespace DoAnTinHoc
         public GiaoDien()
         {
             InitializeComponent();
-            button1.Hide();
         }
-        private Form a;
-        private void openForm(Form b)
+        private void btnStart_Click(object sender, EventArgs e)
         {
-            a = b;
-            b.TopLevel = false;
-            b.FormBorderStyle = FormBorderStyle.None;
-            b.Dock = DockStyle.Fill;
-            panel3.Controls.Add(b);
-            b.BringToFront();
-            b.Show();
+            SapXep f = new SapXep();
+            f.TopLevel = false;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
+            panelBody.Controls.Add(f);
+            panelBody.Tag = f;
+            f.BringToFront();
+            f.Show();
+            Button btnMenu = new Button();
+            btnMenu.Location = new Point(0,0);
+            btnMenu.Name = "btnMenu";
+            btnMenu.Size = new Size(100, 50);
+            btnMenu.Font = new Font("Times New Roman", 12,FontStyle.Bold);
+            btnMenu.BackgroundImage = btnStart.BackgroundImage;
+            btnMenu.Text = "MENU";
+            panelTop.Controls.Add(btnMenu);
+            btnMenu.Click += new EventHandler(btnMenu_Click);
         }
-        private void CBB_Menu_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnMenu_Click(object sender, EventArgs e)
         {
-            //if (CBB_Menu.Text == "Bubble Sort")
-            //    openForm(new BubbleSort());
-            //else if (CBB_Menu.Text == "Selection Sort")
-            //    openForm(new SelectionSort());
-            //else if (CBB_Menu.Text == "Insertion Sort")
-            //    openForm(new InsertionSort());
-            //else
-            //    openForm(new CountingSort());
-            //CBB_Menu.Hide();
-            //label1.Hide();
-            //button1.Visible = true;
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (a != null)
+            if (!SapXep.running)
             {
-                a.Close();
+                foreach (Control control in panelBody.Controls)
+                {
+                    if (control is SapXep)
+                    {
+                        panelBody.Controls.Remove(control);
+                        control.Dispose();
+                        break;
+                    }
+                }
+                panelTop.Controls.Remove((Button)sender);
             }
-            CBB_Menu.Text = "";
-            CBB_Menu.Visible = true;
-            label1.Visible = true;
-            button1.Hide();
+            else
+            {
+                MessageBox.Show("Chương trình đang thực hiện sắp xếp, vui lòng đợi!");
+            }    
+        }
+            private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult kq = MessageBox.Show("Bạn có muốn thoát chương trình không?","Thoát",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (kq == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

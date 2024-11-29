@@ -87,6 +87,7 @@ namespace DoAnTinHoc
                         txt.Size = new Size(50, 30);
                         txt.BackColor = Color.White;
                         txt.ReadOnly = true;
+                        txt.Anchor = AnchorStyles.None;
                         this.Controls.Add(txt);
                         txtArray[i] = txt;
                         Label lbl = new Label();
@@ -96,6 +97,7 @@ namespace DoAnTinHoc
                         lbl.Font = new Font("Times New Roman", 12);
                         lbl.Location = new Point(60 * i, 260);
                         lbl.Size = new Size(50, 30);
+                        lbl.Anchor = AnchorStyles.None;
                         this.Controls.Add(lbl);
                         lblArray[i] = lbl;
                     }
@@ -144,6 +146,7 @@ namespace DoAnTinHoc
                                 txt.Size = new Size(50, 30);
                                 txt.BackColor = Color.White;
                                 txt.ReadOnly = true;
+                                txt.Anchor = AnchorStyles.None;
                                 this.Controls.Add(txt);
                                 txtArray[i] = txt;
                                 Label lbl = new Label();
@@ -153,6 +156,7 @@ namespace DoAnTinHoc
                                 lbl.Font = new Font("Times New Roman", 12);
                                 lbl.Location = new Point(60 * i, 260);
                                 lbl.Size = new Size(50, 30);
+                                lbl.Anchor = AnchorStyles.None;
                                 this.Controls.Add(lbl);
                                 lblArray[i] = lbl;
                             }
@@ -319,7 +323,7 @@ namespace DoAnTinHoc
             if (mang == null || mang.Length == 0)
             {
                 Random rand = new Random();
-                int lenght = rand.Next(7, 14);
+                int lenght = rand.Next(7, 10);
                 HashSet<int> randArr = new HashSet<int>();
                 for (int i = 0; i < lenght; i++)
                 {

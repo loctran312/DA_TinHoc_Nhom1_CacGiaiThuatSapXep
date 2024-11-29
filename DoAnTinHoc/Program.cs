@@ -16,7 +16,7 @@ namespace DoAnTinHoc
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SapXep());
+            Application.Run(new GiaoDien());
         }
     }
 }
