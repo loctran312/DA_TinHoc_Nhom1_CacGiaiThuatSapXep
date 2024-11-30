@@ -56,7 +56,7 @@ namespace DoAnTinHoc
                 MessageBox.Show("Chương trình đang thực hiện sắp xếp, vui lòng đợi!");
             }    
         }
-            private void btnThoat_Click(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
             DialogResult kq = MessageBox.Show("Bạn có muốn thoát chương trình không?","Thoát",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (kq == DialogResult.Yes)

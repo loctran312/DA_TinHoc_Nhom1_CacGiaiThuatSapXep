@@ -32,8 +32,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelBody = new System.Windows.Forms.Panel();
-            this.btnStart = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelBody.SuspendLayout();
             this.SuspendLayout();
@@ -73,20 +73,6 @@
             this.panelBody.Size = new System.Drawing.Size(1478, 765);
             this.panelBody.TabIndex = 1;
             // 
-            // btnStart
-            // 
-            this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnStart.BackColor = System.Drawing.Color.Transparent;
-            this.btnStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStart.BackgroundImage")));
-            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(682, 529);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(172, 77);
-            this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "Bắt đầu";
-            this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
             // btnThoat
             // 
             this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -101,6 +87,20 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // btnStart
+            // 
+            this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStart.BackgroundImage")));
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Location = new System.Drawing.Point(682, 529);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(172, 77);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "Bắt đầu";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
             // GiaoDien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -110,7 +110,7 @@
             this.Controls.Add(this.panelTop);
             this.Name = "GiaoDien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ỨNG DỤNG MÔ PHỎNG CÁC THUẬT TOÁN SẮP XẾP";
+            this.Text = "SẮP XẾP";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.panelBody.ResumeLayout(false);

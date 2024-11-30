@@ -19,6 +19,7 @@ namespace DoAnTinHoc
         public static bool pause;
         public static bool clear;
         public static bool running;
+        public static TextBox hiencode = new TextBox();
         public SapXep()
         {
 
@@ -185,31 +186,33 @@ namespace DoAnTinHoc
         private void SapXepMang(bool tangDan)
         {
             running = true;
+            
             int[] mangSapXep = (int[])mang.Clone();
             TextBox[] txtArray = new TextBox[mangSapXep.Length];
             Label[] lblArray = new Label[mangSapXep.Length];
             lbxSapXep.Items.Clear();
+            lblcode.Items.Clear();
             clear = false;
             KhoiTaoMoPhongSapXep(mangSapXep, txtArray, lblArray);
             switch (cbbGiaiThuat.SelectedItem.ToString())
             {
                 case "Bubble Sort":
                     if (tangDan)
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray, true);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, true);
                     else
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray, false);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, false);
                     break;
                 case "Selection Sort":
                     if (tangDan)
-                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray, true);
+                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, true);
                     else
-                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray, false);
+                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, false);
                     break;
                 case "Insertion Sort":
                     if (tangDan)
-                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray, true);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, true);
                     else
-                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray, false);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, false);
                     break;
             }
             for (int i = 0; i < mang.Length; i++)
@@ -274,6 +277,7 @@ namespace DoAnTinHoc
                 txtNhap.Clear();
                 txtBanDau.Clear();
                 lbxSapXep.Items.Clear();
+                lblcode.Items.Clear();
                 clear = true;
                 pause = false;
                 btnDung.Text = " Dừng ";
@@ -337,5 +341,7 @@ namespace DoAnTinHoc
                 MessageBox.Show("Đã có dữ liệu");
             }
         }
+        
+       
     }
 }
