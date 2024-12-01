@@ -17,12 +17,11 @@ namespace DoAnTinHoc
         private static int buoc;
         public static void hienMang(int[] mang, ListBox listBox, string chuoi)
         {
-
             listBox.Items.Add(chuoi + string.Join(" ", mang) + " - Thời gian:" + demtg.Elapsed.Minutes + " phút " + demtg.Elapsed.Seconds + " giây");
         }
-        public static void hiencode(ListBox lb,string chuoi) 
+        public static void hiencode(ListBox listcode, string chuoi)
         {
-            lb.Items.Add(chuoi);
+            listcode.Items.Add(chuoi);
         }
         public static void moPhong(int[] mang, TextBox[] txtArray, Label[] lblArray, int indexI, int indexJ)
         {
@@ -31,13 +30,13 @@ namespace DoAnTinHoc
                 if (i == indexI)
                 {
                     txtArray[i].BackColor = Color.Aqua;
-                    lblArray[i].Text = "i" + " = [" +i+ "]";
+                    lblArray[i].Text = "i" + " = [" + i + "]";
                 }
-                else if(i == indexJ)
+                else if (i == indexJ)
                 {
                     txtArray[i].BackColor = Color.Brown;
-                    lblArray[i].Text = "j"+ " = [" + i + "]";
-                }  
+                    lblArray[i].Text = "j" + " = [" + i + "]";
+                }
                 else
                 {
                     txtArray[i].BackColor = Color.White;
@@ -46,44 +45,44 @@ namespace DoAnTinHoc
             }
         }
         public static Stopwatch demtg = new Stopwatch();
-        public static async void BubbleSort(int[] mang,ListBox listbox, TextBox[] txtArray, Label[] lblArray,ListBox lb,bool tangdan)
+        public static async void BubbleSort(int[] mang, ListBox listbox, TextBox[] txtArray, Label[] lblArray, ListBox listcode, bool tangdan)
         {
             buoc = 1;
             demtg.Reset();
             demtg.Start();
+            await Task.Delay(1000);
             for (int i = 0; i < mang.Length; i++)
             {
                 while (SapXep.pause == true)
-                { 
+                {
                     await Task.Delay(100);
                 }
-                hiencode(lb,"for(int i=0 ;i< mang.lenghth;i++)");
-                hiencode(lb, "{");
                 for (int j = i + 1; j < mang.Length; j++)
                 {
-                    hiencode(lb,"for (int j = i + 1; j < mang.Length; j++)");
-                    hiencode(lb, "{");
                     if (tangdan)
                     {
                         if (mang[i] > mang[j])
-                        { 
-                            hiencode(lb, " if ("+mang[i]+" >"+ mang[j]+")");
-                            hiencode(lb, "{");
+                        {
+                            hiencode(listcode, "for(int i=0; i< mang.lenghth; i++)");
+                            hiencode(listcode, "{");
+                            hiencode(listcode, "    for (int j = i + 1; j < mang.Length; j++)");
+                            hiencode(listcode, "    {");
+                            hiencode(listcode, "        if(" + mang[i] + " > " + mang[j] + ")");
+                            hiencode(listcode, "        {");
                             int temp = mang[i];
-                            hiencode(lb, "int temp = "+mang[i]+";");
+                            hiencode(listcode, "            int temp = " + mang[i] + ";");
                             mang[i] = mang[j];
-                            hiencode(lb, temp+" ="+ mang[i]+";");
+                            hiencode(listcode, "            " + temp + " = " + mang[i] + ";");
                             mang[j] = temp;
-                            hiencode(lb,  mang[i]+" = "+temp+";");
-                            hiencode(lb, "}");
-                            hiencode(lb, "}");
-                            hiencode(lb, "}");
+                            hiencode(listcode, "            " + mang[i] + " = " + temp + ";");
+                            hiencode(listcode, "        }");
+                            hiencode(listcode, "    }");
+                            hiencode(listcode, "}");
                             moPhong(mang, txtArray, lblArray, i, j);
                             if (SapXep.clear == false)
                             {
                                 hienMang(mang, listbox, $"Bước {buoc++}: Đổi {mang[j]} và {mang[i]} => ");
                             }
-                           
                             await Task.Delay(SapXep.delay);
                             txtArray[i].Text = mang[i].ToString();
                             txtArray[j].Text = mang[j].ToString();
@@ -93,17 +92,21 @@ namespace DoAnTinHoc
                     {
                         if (mang[i] < mang[j])
                         {
-                            hiencode(lb, " if (" + mang[i] + " <" + mang[j] + ")");
-                            hiencode(lb, "{");
+                            hiencode(listcode, "for(int i=0; i< mang.lenghth; i++)");
+                            hiencode(listcode, "{");
+                            hiencode(listcode, "    for (int j = i + 1; j < mang.Length; j++)");
+                            hiencode(listcode, "    {");
+                            hiencode(listcode, "        if (" + mang[i] + " < " + mang[j] + ")");
+                            hiencode(listcode, "        {");
                             int temp = mang[i];
-                            hiencode(lb, "int temp = " + mang[i] + ";");
+                            hiencode(listcode, "            int temp = " + mang[i] + ";");
                             mang[i] = mang[j];
-                            hiencode(lb, temp + " =" + mang[i] + ";");
+                            hiencode(listcode, "            " + temp + " = " + mang[i] + ";");
                             mang[j] = temp;
-                            hiencode(lb, mang[i] + " = " + temp + ";");
-                            hiencode(lb, "}");
-                            hiencode(lb, "}");
-                            hiencode(lb, "}");
+                            hiencode(listcode, "            " + mang[i] + " = " + temp + ";");
+                            hiencode(listcode, "        }");
+                            hiencode(listcode, "    }");
+                            hiencode(listcode, "}");
                             moPhong(mang, txtArray, lblArray, i, j);
                             if (SapXep.clear == false)
                             {
@@ -113,51 +116,52 @@ namespace DoAnTinHoc
                             txtArray[i].Text = mang[i].ToString();
                             txtArray[j].Text = mang[j].ToString();
                         }
-                    }    
+                    }
                 }
             }
             demtg.Stop();
             SapXep.running = false;
         }
-        public static async void SelectionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray,ListBox lb, bool tangdan)
+        public static async void SelectionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray,ListBox listcode, bool tangdan)
         {
             buoc = 1;
             demtg.Reset();
             demtg.Start();
+            await Task.Delay(1000);
             for (int i = 0; i < mang.Length - 1; i++)
             {
-                while (SapXep.pause == true)
-                {
-                    await Task.Delay(100);
-                }
-                hiencode(lb, "for(int i=0 ;i< mang.length-1;i++)");
-                hiencode(lb, "{");
                 if (tangdan)
                 {
+                    hiencode(listcode, "for(int i = 0; i < mang.Length - 1; i++)");
+                    hiencode(listcode, "{");
+                    hiencode(listcode, "    int minIndex = " + i + ";");
+                    hiencode(listcode, "    for(int j = i + 1; j < mang.Length; j++)");
+                    hiencode(listcode, "    {");
                     int minIndex = i;
-                    hiencode(lb, "int minIndex = " + i);
                     for (int j = i + 1; j < mang.Length; j++)
                     {
-                        hiencode(lb, "for (int j = i + 1; j < mang.Length; j++)");
-                        hiencode(lb, "{");
+                        hiencode(listcode, "        if(" + mang[j] + " < mang[minIndex])");
+                        hiencode(listcode, "        {");
                         if (mang[j] < mang[minIndex])
                         {
-                            hiencode(lb, "if(" + mang[j] + "<" + mang[minIndex]+")");
-                            hiencode(lb, "{");
                             minIndex = j;
-                            hiencode(lb, "minIndex = " + j);
-
                         }
-                        hiencode(lb, "}");
+                        hiencode(listcode, "            minIndex = " + j + ";");
                     }
-                    hiencode(lb, "}");
+                    hiencode(listcode, "        }");
+                    hiencode(listcode, "    }");
+                    hiencode(listcode, "    int temp = mang[minIndex];");
                     int temp = mang[minIndex];
-                    hiencode(lb, "int temp = " + mang[minIndex]);
+                    hiencode(listcode, "    mang[minIndex] = " + mang[i] + ";");
                     mang[minIndex] = mang[i];
-                    hiencode(lb, temp + "=" + mang[i]);
+                    hiencode(listcode, "    " + mang[i] + " = temp");
                     mang[i] = temp;
-                    hiencode(lb, mang[i] + "= temp");
-                    
+                    hiencode(listcode, "    }");
+                    hiencode(listcode, "}");
+                    while (SapXep.pause == true)
+                    {
+                        await Task.Delay(100);
+                    }
                     moPhong(mang, txtArray, lblArray, i, minIndex);
                     if (SapXep.clear == false)
                     {
@@ -169,29 +173,36 @@ namespace DoAnTinHoc
                 }
                 else
                 {
+                    hiencode(listcode, "for(int i = 0; i < mang.Length - 1; i++)");
+                    hiencode(listcode, "{");
+                    hiencode(listcode, "    int maxIndex = " + i + ";");
+                    hiencode(listcode, "    for(int j = i + 1; j < mang.Length; j++)");
+                    hiencode(listcode, "    {");
                     int maxIndex = i;
-                    hiencode(lb, "int maxIndex = " + i);
                     for (int j = i + 1; j < mang.Length; j++)
                     {
-                        hiencode(lb, "for (int j = i + 1; j < mang.Length; j++)");
-                        hiencode(lb, "{");
+                        hiencode(listcode, "        if(" + mang[j] + " > mang[minIndex])");
+                        hiencode(listcode, "        {");
                         if (mang[j] > mang[maxIndex])
                         {
-                            hiencode(lb, "if(" + mang[j] + "<" + mang[maxIndex] + ")");
-                            hiencode(lb, "{");
                             maxIndex = j;
-                            hiencode(lb, "maxIndex = " + j);
-
                         }
-                        hiencode(lb, "}");
+                        hiencode(listcode, "            maxIndex = " + j + ";");
                     }
-                    hiencode(lb, "}");
+                    hiencode(listcode, "        }");
+                    hiencode(listcode, "    }");
+                    hiencode(listcode, "    int temp = mang[maxIndex];");
                     int temp = mang[maxIndex];
-                    hiencode(lb, "int temp = " + mang[maxIndex]);
+                    hiencode(listcode, "    mang[maxIndex] = " + mang[i] + ";");
                     mang[maxIndex] = mang[i];
-                    hiencode(lb, temp + "=" + mang[i]);
+                    hiencode(listcode, "    " + mang[i] + " = temp");
                     mang[i] = temp;
-                    hiencode(lb, mang[i] + "= temp");
+                    hiencode(listcode, "    }");
+                    hiencode(listcode, "}");
+                    while (SapXep.pause == true)
+                    {
+                        await Task.Delay(100);
+                    }
                     moPhong(mang, txtArray, lblArray, i, maxIndex);
                     if (SapXep.clear == false)
                     {
@@ -200,42 +211,44 @@ namespace DoAnTinHoc
                     await Task.Delay(SapXep.delay);
                     txtArray[i].Text = mang[i].ToString();
                     txtArray[maxIndex].Text = mang[maxIndex].ToString();
-                }    
+                }
             }
             demtg.Stop();
             SapXep.running = false;
         }
-        public static async void InsertionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray,ListBox lb, bool tangdan)
+        public static async void InsertionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray,ListBox listcode, bool tangdan)
         {
             buoc = 1;
             demtg.Reset();
             demtg.Start();
+            await Task.Delay(1000);
             for (int i = 1; i < mang.Length; i++)
             {
-                hiencode(lb, "for (int i = 1; i < mang.Length; i++)");
-                hiencode(lb, "{");
-                while (SapXep.pause == true)
-                {
-                    await Task.Delay(100);
-                }
                 if (tangdan)
                 {
+                    hiencode(listcode, "for(int i = 1; i < mang.Length; i++)");
+                    hiencode(listcode, "{");
+                    hiencode(listcode, "    int key = " + mang[i] + ";");
+                    hiencode(listcode, "    int j = " + (i - 1) + ";");
                     int key = mang[i];
-                    hiencode(lb, "int key = " + mang[i] + ";");
                     int j = i - 1;
-                    hiencode(lb, "int j = "+(i - 1)+ ";");
+                    hiencode(listcode, "    while(j >= 0 && " + mang[j] + " > key");
+                    hiencode(listcode, "    {");
                     while (j >= 0 && mang[j] > key)
                     {
-                        hiencode(lb, "while ( "+j+"  >= 0 && " + mang[j] + " > key )");
-                        hiencode(lb, "{");
+                        hiencode(listcode, "        mang[j + 1] = " + mang[j] + ";");
+                        hiencode(listcode, "        j--;");
                         mang[j + 1] = mang[j];
-                        hiencode(lb, "mang[j + 1] =" + mang[j] + ";");
                         j--;
-                        hiencode(lb, "j--");
                     }
-                    hiencode(lb, "}");
+                    hiencode(listcode, "    }");
+                    hiencode(listcode, "    mang[j + 1] = key;");
+                    hiencode(listcode, "}");
                     mang[j + 1] = key;
-                    hiencode(lb, " mang[j + 1] ="+key+";");
+                    while (SapXep.pause == true)
+                    {
+                        await Task.Delay(100);
+                    }
                     moPhong(mang, txtArray, lblArray, j + 1, i);
                     if (SapXep.clear == false)
                     {
@@ -249,22 +262,29 @@ namespace DoAnTinHoc
                 }
                 else
                 {
+                    hiencode(listcode, "for(int i = 1; i < mang.Length; i++)");
+                    hiencode(listcode, "{");
+                    hiencode(listcode, "    int key = " + mang[i] + ";");
+                    hiencode(listcode, "    int j = " + (i - 1) + ";");
                     int key = mang[i];
-                    hiencode(lb, "int key = " + mang[i] + ";");
                     int j = i - 1;
-                    hiencode(lb, "int j = " + (i - 1) + ";");
+                    hiencode(listcode, "    while(j >= 0 && " + mang[j] + " < key");
+                    hiencode(listcode, "    {");
                     while (j >= 0 && mang[j] < key)
                     {
-                        hiencode(lb, "while ( "+j+"  >= 0 && " + mang[j] + " < key )");
-                        hiencode(lb, "{");
+                        hiencode(listcode, "        mang[j + 1] = " + mang[j] + ";");
+                        hiencode(listcode, "        j--;");
                         mang[j + 1] = mang[j];
-                        hiencode(lb, "mang[j + 1] =" + mang[j] + ";");
                         j--;
-                        hiencode(lb, "j--");
                     }
-                    hiencode(lb, "}");
+                    hiencode(listcode, "    }");
+                    hiencode(listcode, "    mang[j + 1] = key;");
+                    hiencode(listcode, "}");
                     mang[j + 1] = key;
-                    hiencode(lb, " mang[j + 1] =" + key + ";");
+                    while (SapXep.pause == true)
+                    {
+                        await Task.Delay(100);
+                    }
                     moPhong(mang, txtArray, lblArray, j + 1, i);
                     if (SapXep.clear == false)
                     {
@@ -275,7 +295,7 @@ namespace DoAnTinHoc
                     {
                         txtArray[k].Text = mang[k].ToString();
                     }
-                }    
+                }
             }
             demtg.Stop();
             SapXep.running = false;

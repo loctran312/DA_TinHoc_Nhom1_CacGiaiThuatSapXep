@@ -19,10 +19,8 @@ namespace DoAnTinHoc
         public static bool pause;
         public static bool clear;
         public static bool running;
-        public static TextBox hiencode = new TextBox();
         public SapXep()
         {
-
             InitializeComponent();
             delay = 6000 - 1000 * (int)numericUpDown.Value;
             pause = false;
@@ -186,33 +184,32 @@ namespace DoAnTinHoc
         private void SapXepMang(bool tangDan)
         {
             running = true;
-            
             int[] mangSapXep = (int[])mang.Clone();
             TextBox[] txtArray = new TextBox[mangSapXep.Length];
             Label[] lblArray = new Label[mangSapXep.Length];
             lbxSapXep.Items.Clear();
-            lblcode.Items.Clear();
+            lbxCode.Items.Clear();
             clear = false;
             KhoiTaoMoPhongSapXep(mangSapXep, txtArray, lblArray);
             switch (cbbGiaiThuat.SelectedItem.ToString())
             {
                 case "Bubble Sort":
                     if (tangDan)
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, true);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, true);
                     else
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, false);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, false);
                     break;
                 case "Selection Sort":
                     if (tangDan)
-                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, true);
+                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray, lbxCode, true);
                     else
-                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, false);
+                        CGiaiThuat.SelectionSort(mangSapXep, lbxSapXep, txtArray, lblArray, lbxCode, false);
                     break;
                 case "Insertion Sort":
                     if (tangDan)
-                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, true);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, true);
                     else
-                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lblcode, false);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, false);
                     break;
             }
             for (int i = 0; i < mang.Length; i++)
@@ -222,48 +219,63 @@ namespace DoAnTinHoc
         }
         private void btnSortAsc_Click(object sender, EventArgs e)
         {
-            if (mang != null && mang.Length > 0)
+            if (running == true)
             {
-                int[] mangTam = (int[])mang.Clone();
-                Array.Sort(mangTam);
-                int dem = 0;
-                for (int i = 0; i < mang.Length; i++)
-                {
-                    if (mangTam[i] == mang[i])
-                        dem++;
-                }
-                if (dem == mang.Length)
-                    MessageBox.Show("Mảng đã được sắp xếp tăng dần");
-                else
-                    SapXepMang(true);
+                MessageBox.Show("Chương trình đang thực hiện sắp xếp");
+                return;
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập chuỗi giá trị");
+                if (mang != null && mang.Length > 0)
+                {
+                    int[] mangTam = (int[])mang.Clone();
+                    Array.Sort(mangTam);
+                    int dem = 0;
+                    for (int i = 0; i < mang.Length; i++)
+                    {
+                        if (mangTam[i] == mang[i])
+                            dem++;
+                    }
+                    if (dem == mang.Length)
+                        MessageBox.Show("Mảng đã được sắp xếp tăng dần");
+                    else
+                        SapXepMang(true);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập chuỗi giá trị");
+                }
             }
-
         }
         private void btnSortDesc_Click(object sender, EventArgs e)
         {
-            if (mang != null && mang.Length > 0)
+            if (running == true)
             {
-                int[] mangTam = (int[])mang.Clone();
-                Array.Sort(mangTam);
-                Array.Reverse(mangTam);
-                int dem = 0;
-                for (int i = 0; i < mang.Length; i++)
-                {
-                    if (mangTam[i] == mang[i])
-                        dem++;
-                }
-                if (dem == mang.Length)
-                    MessageBox.Show("Mảng đã được sắp xếp giảm dần");
-                else
-                    SapXepMang(false);
+                MessageBox.Show("Chương trình đang thực hiện sắp xếp");
+                return;
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập chuỗi giá trị");
+                if (mang != null && mang.Length > 0)
+                {
+                    int[] mangTam = (int[])mang.Clone();
+                    Array.Sort(mangTam);
+                    Array.Reverse(mangTam);
+                    int dem = 0;
+                    for (int i = 0; i < mang.Length; i++)
+                    {
+                        if (mangTam[i] == mang[i])
+                            dem++;
+                    }
+                    if (dem == mang.Length)
+                        MessageBox.Show("Mảng đã được sắp xếp giảm dần");
+                    else
+                        SapXepMang(false);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập chuỗi giá trị");
+                }
             }
         }
         private void btnxXoa_Click(object sender, EventArgs e)
@@ -277,7 +289,7 @@ namespace DoAnTinHoc
                 txtNhap.Clear();
                 txtBanDau.Clear();
                 lbxSapXep.Items.Clear();
-                lblcode.Items.Clear();
+                lbxCode.Items.Clear();
                 clear = true;
                 pause = false;
                 btnDung.Text = " Dừng ";
@@ -341,7 +353,5 @@ namespace DoAnTinHoc
                 MessageBox.Show("Đã có dữ liệu");
             }
         }
-        
-       
     }
 }
