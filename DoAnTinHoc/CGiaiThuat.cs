@@ -121,6 +121,12 @@ namespace DoAnTinHoc
             }
             demtg.Stop();
             SapXep.running = false;
+            if (SapXep.running == false )
+            {
+                string kq = string.Join(" ", mang);
+                MessageBox.Show("Chương Trình Đã Sắp Xếp \n Kết quả sau khi sắp xếp là : " + kq);
+            }
+
         }
         public static async void SelectionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray,ListBox listcode, bool tangdan)
         {
@@ -215,6 +221,11 @@ namespace DoAnTinHoc
             }
             demtg.Stop();
             SapXep.running = false;
+            if (SapXep.running == false)
+            {
+                string kq = string.Join(" ", mang);
+                MessageBox.Show("Chương Trình Đã Sắp Xếp \n Kết quả sau khi sắp xếp là : " + kq);
+            }
         }
         public static async void InsertionSort(int[] mang, ListBox listBox, TextBox[] txtArray, Label[] lblArray,ListBox listcode, bool tangdan)
         {
@@ -299,6 +310,11 @@ namespace DoAnTinHoc
             }
             demtg.Stop();
             SapXep.running = false;
+            if (SapXep.running == false)
+            {
+                string kq = string.Join(" ", mang);
+                MessageBox.Show("Chương Trình Đã Sắp Xếp \n Kết quả sau khi sắp xếp là : " + kq);
+            }
         }
     }
 }

@@ -134,6 +134,8 @@ namespace DoAnTinHoc
                         else
                         {
                             txtBanDau.Text = string.Join(" ", mang);
+                            int totalWidth = mang.Length * 60;
+                            int start=(this.ClientSize.Width-totalWidth)/2;
                             for (int i = 0; i < mang.Length; i++)
                             {
                                 TextBox txt = new TextBox();
@@ -141,7 +143,7 @@ namespace DoAnTinHoc
                                 txt.Text = mang[i].ToString();
                                 txt.TextAlign = HorizontalAlignment.Center;
                                 txt.Font = new Font("Times New Roman", 12);
-                                txt.Location = new Point(60 * i, 220);
+                                txt.Location = new Point(start+60 * i, 220);
                                 txt.Size = new Size(50, 30);
                                 txt.BackColor = Color.White;
                                 txt.ReadOnly = true;
@@ -153,7 +155,7 @@ namespace DoAnTinHoc
                                 lbl.Text = "[" + i + "]".ToString();
                                 lbl.TextAlign = ContentAlignment.MiddleCenter;
                                 lbl.Font = new Font("Times New Roman", 12);
-                                lbl.Location = new Point(60 * i, 260);
+                                lbl.Location = new Point(start+60 * i, 260);
                                 lbl.Size = new Size(50, 30);
                                 lbl.Anchor = AnchorStyles.None;
                                 this.Controls.Add(lbl);
@@ -211,11 +213,7 @@ namespace DoAnTinHoc
                     else
                         CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, false);
                     break;
-            }
-            for (int i = 0; i < mang.Length; i++)
-            {
-                txtArray[i].Text = mangSapXep[i].ToString();
-            }
+            }    
         }
         private void btnSortAsc_Click(object sender, EventArgs e)
         {

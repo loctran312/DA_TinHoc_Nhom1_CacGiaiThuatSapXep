@@ -51,3 +51,4 @@ F:\DoAnTinHoc\DoAnTinHoc\obj\Debug\DoAnTinHoc.csproj.CoreCompileInputs.cache
 F:\DoAnTinHoc\DoAnTinHoc\obj\Debug\DoAnTinHoc.exe
 F:\DoAnTinHoc\DoAnTinHoc\obj\Debug\DoAnTinHoc.pdb
 F:\Code\DoAnTinHoc\obj\Debug\DoAnTinHoc.GiaoDien.resources
+D:\Luyen Mai Thanh Tai\code HTML & CSS\DoAnTinHoc\obj\Debug\DoAnTinHoc.GiaoDien.resources
