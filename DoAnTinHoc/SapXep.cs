@@ -73,6 +73,8 @@ namespace DoAnTinHoc
                         return;
                     }
                     txtBanDau.Text = string.Join(" ", mang);
+                    int totalWidth = mang.Length * 60;
+                    int start = (this.ClientSize.Width - totalWidth) / 2;
                     TextBox[] txtArray = new TextBox[mang.Length];
                     Label[] lblArray = new Label[mang.Length];
                     for (int i = 0; i < mang.Length; i++)
@@ -82,7 +84,7 @@ namespace DoAnTinHoc
                         txt.Text = mang[i].ToString();
                         txt.TextAlign = HorizontalAlignment.Center;
                         txt.Font = new Font("Times New Roman", 12);
-                        txt.Location = new Point(60 * i, 220);
+                        txt.Location = new Point(start + 60 * i, 220);
                         txt.Size = new Size(50, 30);
                         txt.BackColor = Color.White;
                         txt.ReadOnly = true;
@@ -94,7 +96,7 @@ namespace DoAnTinHoc
                         lbl.Text = "[" + i + "]".ToString();
                         lbl.TextAlign = ContentAlignment.MiddleCenter;
                         lbl.Font = new Font("Times New Roman", 12);
-                        lbl.Location = new Point(60 * i, 260);
+                        lbl.Location = new Point(start + 60 * i, 260);
                         lbl.Size = new Size(50, 30);
                         lbl.Anchor = AnchorStyles.None;
                         this.Controls.Add(lbl);
