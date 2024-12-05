@@ -64,10 +64,11 @@
             // 
             // panelBody
             // 
+            this.panelBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelBody.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelBody.BackgroundImage")));
+            this.panelBody.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelBody.Controls.Add(this.btnThoat);
             this.panelBody.Controls.Add(this.btnStart);
-            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(0, 79);
             this.panelBody.Name = "panelBody";
             this.panelBody.Size = new System.Drawing.Size(1478, 765);

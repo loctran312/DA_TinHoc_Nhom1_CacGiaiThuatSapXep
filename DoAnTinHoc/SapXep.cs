@@ -50,7 +50,6 @@ namespace DoAnTinHoc
         }
         private void btnTapTin_Click(object sender, EventArgs e)
         {
-
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Text Files (*.txt)|*.txt";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -137,7 +136,7 @@ namespace DoAnTinHoc
                         {
                             txtBanDau.Text = string.Join(" ", mang);
                             int totalWidth = mang.Length * 60;
-                            int start=(this.ClientSize.Width-totalWidth)/2;
+                            int start = (this.ClientSize.Width - totalWidth) / 2;
                             for (int i = 0; i < mang.Length; i++)
                             {
                                 TextBox txt = new TextBox();
@@ -145,7 +144,7 @@ namespace DoAnTinHoc
                                 txt.Text = mang[i].ToString();
                                 txt.TextAlign = HorizontalAlignment.Center;
                                 txt.Font = new Font("Times New Roman", 12);
-                                txt.Location = new Point(start+60 * i, 220);
+                                txt.Location = new Point(start + 60 * i, 220);
                                 txt.Size = new Size(50, 30);
                                 txt.BackColor = Color.White;
                                 txt.ReadOnly = true;
@@ -157,7 +156,7 @@ namespace DoAnTinHoc
                                 lbl.Text = "[" + i + "]".ToString();
                                 lbl.TextAlign = ContentAlignment.MiddleCenter;
                                 lbl.Font = new Font("Times New Roman", 12);
-                                lbl.Location = new Point(start+60 * i, 260);
+                                lbl.Location = new Point(start + 60 * i, 260);
                                 lbl.Size = new Size(50, 30);
                                 lbl.Anchor = AnchorStyles.None;
                                 this.Controls.Add(lbl);
@@ -170,7 +169,6 @@ namespace DoAnTinHoc
                 {
                     MessageBox.Show("Vui lòng nhập chuỗi giá trị hợp lệ");
                 }
-
             }
             else
             {
@@ -199,9 +197,9 @@ namespace DoAnTinHoc
             {
                 case "Bubble Sort":
                     if (tangDan)
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, true);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray, lbxCode, true);
                     else
-                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, false);
+                        CGiaiThuat.BubbleSort(mangSapXep, lbxSapXep, txtArray, lblArray, lbxCode, false);
                     break;
                 case "Selection Sort":
                     if (tangDan)
@@ -211,11 +209,11 @@ namespace DoAnTinHoc
                     break;
                 case "Insertion Sort":
                     if (tangDan)
-                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, true);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray, lbxCode, true);
                     else
-                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray,lbxCode, false);
+                        CGiaiThuat.InsertionSort(mangSapXep, lbxSapXep, txtArray, lblArray, lbxCode, false);
                     break;
-            }    
+            }
         }
         private void btnSortAsc_Click(object sender, EventArgs e)
         {
@@ -283,7 +281,7 @@ namespace DoAnTinHoc
             if (running == true)
             {
                 MessageBox.Show("Chương trình đang chạy vui lòng đợi!");
-            }   
+            }
             else
             {
                 txtNhap.Clear();
@@ -293,7 +291,6 @@ namespace DoAnTinHoc
                 clear = true;
                 pause = false;
                 btnDung.Text = " Dừng ";
-                running = false;
                 if (mang != null && mang.Length > 0)
                 {
                     TextBox[] txtArray = new TextBox[mang.Length];
@@ -331,9 +328,8 @@ namespace DoAnTinHoc
             else
             {
                 MessageBox.Show("Vui lòng nhấn chọn sắp xếp");
-            }    
+            }
         }
-
         private void btnNgauNhien_Click(object sender, EventArgs e)
         {
             if (mang == null || mang.Length == 0)

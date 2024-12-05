@@ -27,10 +27,10 @@ namespace DoAnTinHoc
             f.BringToFront();
             f.Show();
             Button btnMenu = new Button();
-            btnMenu.Location = new Point(0,0);
+            btnMenu.Location = new Point(0, 0);
             btnMenu.Name = "btnMenu";
             btnMenu.Size = new Size(100, 50);
-            btnMenu.Font = new Font("Times New Roman", 12,FontStyle.Bold);
+            btnMenu.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             btnMenu.BackgroundImage = btnStart.BackgroundImage;
             btnMenu.Text = "MENU";
             panelTop.Controls.Add(btnMenu);
@@ -54,11 +54,11 @@ namespace DoAnTinHoc
             else
             {
                 MessageBox.Show("Chương trình đang thực hiện sắp xếp, vui lòng đợi!");
-            }    
+            }
         }
-            private void btnThoat_Click(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
-            DialogResult kq = MessageBox.Show("Bạn có muốn thoát chương trình không?","Thoát",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult kq = MessageBox.Show("Bạn có muốn thoát chương trình không?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (kq == DialogResult.Yes)
             {
                 Close();
